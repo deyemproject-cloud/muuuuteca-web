@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="it" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Menu — MuuuTeca</title>
+  <meta name="description" content="Il menu di MuuuTeca — tagli di manzo selezionati, griglia tradizionale, carta dei vini curata a Pavia." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL,GRAD,opsz@0,400,0,1,24&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="antialiased overflow-x-hidden">
+
+  <!-- ══ NAVIGATION ══ -->
+  <nav id="navbar" class="fixed top-4 left-1/2 -translate-x-1/2 w-[93%] max-w-5xl z-50 nav-glass rounded-full px-5 py-2.5 flex justify-between items-center transition-all duration-300">
+    <a href="index.html" class="text-xl font-bold italic text-gold tracking-[-0.04em]">MuuuTeca</a>
+
+    <div class="hidden md:flex items-center gap-7">
+      <a href="index.html"        class="page-nav-link text-zinc-400 hover:text-white transition-colors text-xs font-medium italic">Home</a>
+      <a href="chi-siamo.html"   class="page-nav-link text-zinc-400 hover:text-white transition-colors text-xs font-medium italic">Chi Siamo</a>
+      <a href="menu.html"          class="page-nav-link text-gold font-semibold italic text-xs pb-0.5 nav-active">Menu</a>
+      <a href="prenotazioni.html" class="page-nav-link text-zinc-400 hover:text-white transition-colors text-xs font-medium italic">Prenotazioni</a>
+    </div>
+
+    <a href="prenotazioni.html" class="hidden md:inline-flex btn-gold px-4 py-1.5 rounded-full font-bold italic text-xs">Book a Table</a>
+
+    <button id="menuBtn" class="md:hidden text-zinc-300 hover:text-white p-1" aria-label="Menu">
+      <span class="material-symbols-outlined text-3xl">menu</span>
+    </button>
+  </nav>
+
+  <!-- ══ MOBILE DRAWER ══ -->
+  <div id="mobileMenu" class="mobile-menu fixed inset-0 z-[60] flex">
+    <div id="mobileBackdrop" class="absolute inset-0 bg-black/70 backdrop-blur-sm"></div>
+    <div class="relative ml-auto w-72 h-full bg-[#1c1b1b] flex flex-col p-8 shadow-2xl">
+      <button id="closeMenuBtn" class="self-end text-zinc-400 hover:text-white mb-10" aria-label="Close">
+        <span class="material-symbols-outlined text-3xl">close</span>
+      </button>
+      <nav class="flex flex-col gap-6">
+        <a href="index.html"        class="text-zinc-300 hover:text-gold transition-colors italic text-base">Home</a>
+        <a href="chi-siamo.html"   class="text-zinc-300 hover:text-gold transition-colors italic text-base">Chi Siamo</a>
+        <a href="menu.html"          class="text-gold font-semibold italic text-base">Menu</a>
+        <a href="prenotazioni.html" class="text-zinc-300 hover:text-gold transition-colors italic text-base">Prenotazioni</a>
+      </nav>
+      <div class="mt-auto">
+        <a href="prenotazioni.html" class="btn-gold block text-center px-6 py-3 rounded-full font-bold italic text-sm">Book a Table</a>
+        <p class="text-zinc-600 text-xs italic mt-6 text-center">Via Porta Damiani 30, Pavia</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ PAGE HERO ══ -->
+  <section class="page-hero pt-32 pb-20 px-6">
+    <div class="absolute inset-0 z-0">
+      <img
+        src="https://images.unsplash.com/photo-1432139555190-58524dae6a55?w=1920&q=80"
+        alt="MuuuTeca — i nostri tagli di carne"
+        class="w-full h-full object-cover opacity-30"
+        loading="eager"
+      />
+      <div class="absolute inset-0 bg-gradient-to-b from-[#131313] via-[#131313]/80 to-[#131313]"></div>
+    </div>
+    <div class="relative z-10 text-center max-w-4xl mx-auto">
+      <p class="uppercase text-gold font-bold tracking-[0.25em] text-[0.6rem] mb-5 italic">Il Nostro Menu</p>
+      <h1 class="text-5xl md:text-7xl font-light italic text-white tracking-[-0.03em] mb-6 leading-tight">
+        <span class="text-gold-gradient font-bold">Carne</span> & <span class="text-gold-gradient font-bold">Vino</span>
+      </h1>
+      <p class="text-lg md:text-xl text-[#d8c2b2] font-light italic max-w-2xl mx-auto leading-relaxed">
+        Tagli selezionati, griglia viva, etichette scelte con cura.
+      </p>
+    </div>
+  </section>
+
+  <!-- ══ MAIN ══ -->
+  <main class="relative z-10 bg-[#131313]">
+
+    <!-- Primi & Secondi — split layout -->
+    <section class="section -mt-8">
+      <div class="container">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+
+          <!-- Left: Secondi (Carne) -->
+          <div class="fade-up">
+            <div class="flex items-center gap-3 mb-8">
+              <span class="material-symbols-outlined text-gold text-2xl">local_fire_department</span>
+              <h2 class="text-3xl md:text-4xl font-light italic text-white">I <span class="text-gold font-bold">Secondi</span></h2>
+            </div>
+
+            <div class="space-y-8">
+              <!-- Item -->
+              <div class="card rounded-xl p-7">
+                <div class="flex justify-between items-start mb-2 gap-4">
+                  <h3 class="text-lg font-bold italic text-white">Fiorentina</h3>
+                  <span class="text-gold font-bold italic text-base shrink-0">€ 38</span>
+                </div>
+                <p class="text-[#d8c2b2] font-light italic text-sm leading-relaxed">Bistecca alla fiorentina, 1,2 kg — taglio storico toscano, cotta sulla brace viva.</p>
+              </div>
+              <!-- Item -->
+              <div class="card rounded-xl p-7">
+                <div class="flex justify-between items-start mb-2 gap-4">
+                  <h3 class="text-lg font-bold italic text-white">Tomahawk</h3>
+                  <span class="text-gold font-bold italic text-base shrink-0">€ 45</span>
+                </div>
+                <p class="text-[#d8c2b2] font-light italic text-sm leading-relaxed">Osso lungo, taglio Tenera Chianina, marinatura alle erbe di Pavia.</p>
+              </div>
+              <!-- Item -->
+              <div class="card rounded-xl p-7">
+                <div class="flex justify-between items-start mb-2 gap-4">
+                  <h3 class="text-lg font-bold italic text-white">Ribeye</h3>
+                  <span class="text-gold font-bold italic text-base shrink-0">€ 42</span>
+                </div>
+                <p class="text-[#d8c2b2] font-light italic text-sm leading-relaxed">Spezzatino di manzo, rosolato in padella e finito alla brace con burro al rosmarino.</p>
+              </div>
+              <!-- Item -->
+              <div class="card rounded-xl p-7">
+                <div class="flex justify-between items-start mb-2 gap-4">
+                  <h3 class="text-lg font-bold italic text-white">Picanha</h3>
+                  <span class="text-gold font-bold italic text-base shrink-0">€ 35</span>
+                </div>
+                <p class="text-[#d8c2b2] font-light italic text-sm leading-relaxed">Il taglio brasiliano preferito —有三层脂肪, grigliato e servito al sangue.</p>
+              </div>
+              <!-- Item -->
+              <div class="card rounded-xl p-7">
+                <div class="flex justify-between items-start mb-2 gap-4">
+                  <h3 class="text-lg font-bold italic text-white">Costata</h3>
+                  <span class="text-gold font-bold italic text-base shrink-0">€ 32</span>
+                </div>
+                <p class="text-[#d8c2b2] font-light italic text-sm leading-relaxed">Costata di Fassona, dry-aged 30 giorni, sale Maldon, olio evo a crudo.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Antipasti & Contorni -->
+          <div class="space-y-10 fade-up">
+            <!-- Antipasti -->
+            <div>
+              <div class="flex items-center gap-3 mb-6">
+                <span class="material-symbols-outlined text-gold text-2xl">restaurant</span>
+                <h2 class="text-2xl md:text-3xl font-light italic text-white">Antipasti</h2>
+              </div>
+              <div class="space-y-6">
+                <div class="card rounded-xl p-6">
+                  <div class="flex justify-between items-start mb-1 gap-4">
+                    <h3 class="text-base font-bold italic text-white">Carpaccio di Fassona</h3>
+                    <span class="text-gold font-bold italic text-sm shrink-0">€ 18</span>
+                  </div>
+                  <p class="text-[#d8c2b2] font-light italic text-sm">Rucola, parmigiano 36 mesi, tartufo nero (stagionale).</p>
+                </div>
+                <div class="card rounded-xl p-6">
+                  <div class="flex justify-between items-start mb-1 gap-4">
+                    <h3 class="text-base font-bold italic text-white">Burrata & Crudo</h3>
+                    <span class="text-gold font-bold italic text-sm shrink-0">€ 16</span>
+                  </div>
+                  <p class="text-[#d8c2b2] font-light italic text-sm">Burrata pugliese, pomodorini datterini, basilico fresco.</p>
+                </div>
+                <div class="card rounded-xl p-6">
+                  <div class="flex justify-between items-start mb-1 gap-4">
+                    <h3 class="text-base font-bold italic text-white">Tagliere di Salumi</h3>
+                    <span class="text-gold font-bold italic text-sm shrink-0">€ 22</span>
+                  </div>
+                  <p class="text-[#d8c2b2] font-light italic text-sm">Selezione di salumi italiani, miele di acacia, mostarda di Cremona.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Contorni -->
+            <div>
+              <div class="flex items-center gap-3 mb-6">
+                <span class="material-symbols-outlined text-gold text-2xl">eco</span>
+                <h2 class="text-2xl md:text-3xl font-light italic text-white">Contorni</h2>
+              </div>
+              <div class="space-y-6">
+                <div class="card rounded-xl p-6">
+                  <div class="flex justify-between items-start mb-1 gap-4">
+                    <h3 class="text-base font-bold italic text-white">Patate al Forno</h3>
+                    <span class="text-gold font-bold italic text-sm shrink-0">€ 7</span>
+                  </div>
+                  <p class="text-[#d8c2b2] font-light italic text-sm">Rosse, croccanti fuori, morbide dentro — rosmarino e aglio.</p>
+                </div>
+                <div class="card rounded-xl p-6">
+                  <div class="flex justify-between items-start mb-1 gap-4">
+                    <h3 class="text-base font-bold italic text-white">Verdure alla Griglia</h3>
+                    <span class="text-gold font-bold italic text-sm shrink-0">€ 8</span>
+                  </div>
+                  <p class="text-[#d8c2b2] font-light italic text-sm">Zucchine, melanzane, peperoni — olio evo e sale Maldon.</p>
+                </div>
+                <div class="card rounded-xl p-6">
+                  <div class="flex justify-between items-start mb-1 gap-4">
+                    <h3 class="text-base font-bold italic text-white">Insalata Mista</h3>
+                    <span class="text-gold font-bold italic text-sm shrink-0">€ 6</span>
+                  </div>
+                  <p class="text-[#d8c2b2] font-light italic text-sm">Misticanza, pomodorini, carciofi — vinaigrette leggera.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Carta dei Vini -->
+    <section class="section bg-[#1c1b1b]">
+      <div class="container">
+        <div class="text-center mb-14 fade-up">
+          <div class="flex items-center justify-center gap-3 mb-4">
+            <span class="material-symbols-outlined text-gold text-3xl">wine_bar</span>
+            <h2 class="text-4xl md:text-5xl font-light italic text-white">
+              La Carta dei <span class="text-gold font-bold italic">Vini</span>
+            </h2>
+          </div>
+          <p class="text-[#d8c2b2] font-light italic text-lg max-w-2xl mx-auto">Un archivio di sapori curato per chi cerca l'eccellenza nel calice.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+          <div class="card rounded-xl overflow-hidden fade-up">
+            <div class="img-zoom h-64">
+              <img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=600&q=80" alt="Riserve Storiche" class="w-full h-full object-cover" loading="lazy" />
+            </div>
+            <div class="p-7">
+              <h3 class="text-lg font-light italic text-white mb-2">Riserve Storiche</h3>
+              <p class="text-[#d8c2b2] font-light italic text-sm leading-relaxed">Etichette d'annata dai vigneti più prestigiosi d'Italia e del mondo. Barolo, Brunello, Sassicaia.</p>
+            </div>
+          </div>
+          <div class="card rounded-xl overflow-hidden fade-up">
+            <div class="img-zoom h-64">
+              <img src="https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?w=600&q=80" alt="Degustazioni Guidate" class="w-full h-full object-cover" loading="lazy" />
+            </div>
+            <div class="p-7">
+              <h3 class="text-lg font-light italic text-white mb-2">Degustazioni Guidate</h3>
+              <p class="text-[#d8c2b2] font-light italic text-sm leading-relaxed">Percorsi sensoriali curati dal nostro sommelier — 5 calici selezionati per esplorare territori e vitigni.</p>
+            </div>
+          </div>
+          <div class="card rounded-xl overflow-hidden fade-up">
+            <div class="img-zoom h-64">
+              <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80" alt="Terroir e Territorio" class="w-full h-full object-cover" loading="lazy" />
+            </div>
+            <div class="p-7">
+              <h3 class="text-lg font-light italic text-white mb-2">Terroir e Territorio</h3>
+              <p class="text-[#d8c2b2] font-light italic text-sm leading-relaxed">Etichette che raccontano la terra — vini naturali, piccole cantine, produzioni limitate.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center fade-up">
+          <p class="text-[#d8c2b2] font-light italic mb-6">Chiedi al nostro personale per la lista completa dei vini available.</p>
+          <a href="prenotazioni.html" class="btn-gold px-10 py-4 rounded-full font-bold italic text-base shadow-xl hover:shadow-2xl transition-all duration-200 inline-block">Prenota & Degusta</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Degustazioni -->
+    <section class="section">
+      <div class="container">
+        <div class="max-w-3xl mx-auto text-center fade-up">
+          <span class="material-symbols-outlined text-gold text-4xl mb-4 block">event_available</span>
+          <h2 class="text-4xl md:text-5xl font-light italic text-white mb-6">
+            Degustazioni & <span class="text-gold font-bold italic">Eventi</span>
+          </h2>
+          <p class="text-[#d8c2b2] font-light italic text-lg leading-relaxed mb-8">
+            Organizziamo regolarmente degustazioni di carne e vino, cene a tema e serate private. Contattaci per scoprire i prossimi eventi o per organizzare una serata su misura.
+          </p>
+          <a href="tel:3392734159" class="inline-flex items-center gap-2 text-gold font-bold italic border-b border-gold/50 pb-0.5 hover:border-gold transition-all text-sm mb-6">
+            Contattaci per gli eventi →
+          </a>
+          <p class="text-zinc-500 italic text-sm">Tel: <a href="tel:3392734159" class="text-gold hover:underline">339 27 34 159</a> &nbsp;|&nbsp; Via Porta Damiani 30, Pavia</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ══ FOOTER ══ -->
+  <footer class="bg-[#0e0e0e] rounded-t-[24px] border-t border-[#534438]/15">
+    <div class="container py-12 px-8">
+      <div class="flex flex-col md:flex-row justify-between items-center gap-8">
+        <div class="text-center md:text-left">
+          <div class="text-lg font-bold italic text-gold mb-1">MuuuTeca</div>
+          <p class="text-zinc-500 text-xs italic">L'essenza della carne, lo spirito del vino a Pavia.</p>
+        </div>
+        <nav class="flex flex-wrap justify-center gap-6 md:gap-8">
+          <a href="chi-siamo.html"    class="text-zinc-500 hover:text-gold transition-colors font-medium italic text-xs">Chi Siamo</a>
+          <a href="menu.html"          class="text-zinc-500 hover:text-gold transition-colors font-medium italic text-xs">Menu</a>
+          <a href="prenotazioni.html" class="text-zinc-500 hover:text-gold transition-colors font-medium italic text-xs">Prenotazioni</a>
+        </nav>
+        <div class="text-zinc-600 font-medium italic text-xs">© 2024 MuuuTeca. Tutti i diritti riservati.</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

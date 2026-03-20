@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="it" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prenotazioni — MuuuTeca</title>
+  <meta name="description" content="Prenota il tuo tavolo da MuuuTeca — ristorante steakhouse a Pavia. Griglia accesa tutti i giorni." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL,GRAD,opsz@0,400,0,1,24&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="antialiased overflow-x-hidden">
+
+  <!-- ══ NAVIGATION ══ -->
+  <nav id="navbar" class="fixed top-4 left-1/2 -translate-x-1/2 w-[93%] max-w-5xl z-50 nav-glass rounded-full px-5 py-2.5 flex justify-between items-center transition-all duration-300">
+    <a href="index.html" class="text-xl font-bold italic text-gold tracking-[-0.04em]">MuuuTeca</a>
+
+    <div class="hidden md:flex items-center gap-7">
+      <a href="index.html"        class="page-nav-link text-zinc-400 hover:text-white transition-colors text-xs font-medium italic">Home</a>
+      <a href="chi-siamo.html"   class="page-nav-link text-zinc-400 hover:text-white transition-colors text-xs font-medium italic">Chi Siamo</a>
+      <a href="menu.html"          class="page-nav-link text-zinc-400 hover:text-white transition-colors text-xs font-medium italic">Menu</a>
+      <a href="prenotazioni.html" class="page-nav-link text-gold font-semibold italic text-xs pb-0.5 nav-active">Prenotazioni</a>
+    </div>
+
+    <a href="prenotazioni.html" class="hidden md:inline-flex btn-gold px-4 py-1.5 rounded-full font-bold italic text-xs">Book a Table</a>
+
+    <button id="menuBtn" class="md:hidden text-zinc-300 hover:text-white p-1" aria-label="Menu">
+      <span class="material-symbols-outlined text-3xl">menu</span>
+    </button>
+  </nav>
+
+  <!-- ══ MOBILE DRAWER ══ -->
+  <div id="mobileMenu" class="mobile-menu fixed inset-0 z-[60] flex">
+    <div id="mobileBackdrop" class="absolute inset-0 bg-black/70 backdrop-blur-sm"></div>
+    <div class="relative ml-auto w-72 h-full bg-[#1c1b1b] flex flex-col p-8 shadow-2xl">
+      <button id="closeMenuBtn" class="self-end text-zinc-400 hover:text-white mb-10" aria-label="Close">
+        <span class="material-symbols-outlined text-3xl">close</span>
+      </button>
+      <nav class="flex flex-col gap-6">
+        <a href="index.html"        class="text-zinc-300 hover:text-gold transition-colors italic text-base">Home</a>
+        <a href="chi-siamo.html"   class="text-zinc-300 hover:text-gold transition-colors italic text-base">Chi Siamo</a>
+        <a href="menu.html"          class="text-zinc-300 hover:text-gold transition-colors italic text-base">Menu</a>
+        <a href="prenotazioni.html" class="text-gold font-semibold italic text-base">Prenotazioni</a>
+      </nav>
+      <div class="mt-auto">
+        <a href="prenotazioni.html" class="btn-gold block text-center px-6 py-3 rounded-full font-bold italic text-sm">Book a Table</a>
+        <p class="text-zinc-600 text-xs italic mt-6 text-center">Via Porta Damiani 30, Pavia</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ PAGE HERO ══ -->
+  <section class="page-hero pt-32 pb-20 px-6">
+    <div class="absolute inset-0 z-0">
+      <img
+        src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=1920&q=80"
+        alt="MuuuTeca — tavola apparecchiata"
+        class="w-full h-full object-cover opacity-25"
+        loading="eager"
+      />
+      <div class="absolute inset-0 bg-gradient-to-b from-[#131313] via-[#131313]/80 to-[#131313]"></div>
+    </div>
+    <div class="relative z-10 text-center max-w-4xl mx-auto">
+      <p class="uppercase text-gold font-bold tracking-[0.25em] text-[0.6rem] mb-5 italic">Prenota</p>
+      <h1 class="text-5xl md:text-7xl font-light italic text-white tracking-[-0.03em] mb-6 leading-tight">
+        Il tuo <span class="text-gold-gradient font-bold">Tavolo</span>
+      </h1>
+      <p class="text-lg md:text-xl text-[#d8c2b2] font-light italic max-w-2xl mx-auto leading-relaxed">
+        Griglia accesa e calici pronti. Ti aspettiamo.
+      </p>
+    </div>
+  </section>
+
+  <!-- ══ MAIN ══ -->
+  <main class="relative z-10 bg-[#131313] pb-24">
+
+    <!-- Booking Section -->
+    <section class="section -mt-6">
+      <div class="container">
+        <div class="max-w-4xl mx-auto">
+
+          <div class="bg-[#1c1b1b] rounded-2xl p-8 md:p-14 text-center relative overflow-hidden border border-[#534438]/20 fade-up">
+            <!-- Glow blobs -->
+            <div class="glow-blob absolute -top-24 -right-24 w-64 h-64 -mr-8 -mt-8"></div>
+            <div class="glow-blob absolute -bottom-24 -left-24 w-64 h-64 -ml-8 -mb-8"></div>
+
+            <div class="relative z-10">
+              <span class="material-symbols-outlined text-5xl text-gold mb-6 block">restaurant</span>
+              <h2 class="text-4xl md:text-5xl font-light italic text-white mb-4">
+                Verifica <span class="text-gold font-bold italic">Disponibilità</span>
+              </h2>
+              <p class="text-[#d8c2b2] font-light italic text-lg mb-12 leading-relaxed max-w-xl mx-auto">
+                Cerchi dove mangiare carne a Pavia? Compila il form e ti contatteremo per confermare la tua prenotazione.
+              </p>
+
+              <!-- Booking Form -->
+              <form id="bookingForm" class="flex flex-col sm:flex-row gap-3 justify-center items-end max-w-2xl mx-auto mb-6" novalidate>
+
+                <div class="flex flex-col items-start w-full">
+                  <label for="bookingDate" class="text-xs text-zinc-500 italic mb-2">Data</label>
+                  <input
+                    id="bookingDate"
+                    type="date"
+                    required
+                    class="bg-[#353535] border border-[#534438]/50 rounded-full px-5 py-3.5 text-white text-sm italic focus:border-gold focus:ring-2 focus:ring-gold/20 transition-all w-full cursor-pointer"
+                  />
+                </div>
+
+                <div class="flex flex-col items-start w-full">
+                  <label for="bookingTime" class="text-xs text-zinc-500 italic mb-2">Orario</label>
+                  <select
+                    id="bookingTime"
+                    required
+                    class="bg-[#353535] border border-[#534438]/50 rounded-full px-5 py-3.5 text-white text-sm italic focus:border-gold focus:ring-2 focus:ring-gold/20 transition-all w-full cursor-pointer"
+                  >
+                    <option value="" disabled selected>Orario</option>
+                    <option value="12:00">12:00</option>
+                    <option value="12:30">12:30</option>
+                    <option value="13:00">13:00</option>
+                    <option value="13:30">13:30</option>
+                    <option value="14:00">14:00</option>
+                    <option value="19:00">19:00</option>
+                    <option value="19:30">19:30</option>
+                    <option value="20:00">20:00</option>
+                    <option value="20:30">20:30</option>
+                    <option value="21:00">21:00</option>
+                    <option value="21:30">21:30</option>
+                  </select>
+                </div>
+
+                <div class="flex flex-col items-start w-full">
+                  <label for="bookingGuests" class="text-xs text-zinc-500 italic mb-2">Ospiti</label>
+                  <select
+                    id="bookingGuests"
+                    required
+                    class="bg-[#353535] border border-[#534438]/50 rounded-full px-5 py-3.5 text-white text-sm italic focus:border-gold focus:ring-2 focus:ring-gold/20 transition-all w-full cursor-pointer"
+                  >
+                    <option value="" disabled selected>Ospiti</option>
+                    <option value="1">1 persona</option>
+                    <option value="2">2 persone</option>
+                    <option value="3">3 persone</option>
+                    <option value="4">4 persone</option>
+                    <option value="5">5 persone</option>
+                    <option value="6">6 persone</option>
+                    <option value="7+">7+ persone</option>
+                  </select>
+                </div>
+
+                <button
+                  type="submit"
+                  class="btn-gold px-8 py-3.5 rounded-full font-bold italic text-sm shadow-xl hover:shadow-2xl transition-all duration-200 w-full sm:w-auto whitespace-nowrap"
+                >
+                  Verifica Disponibilità
+                </button>
+              </form>
+
+              <!-- Success -->
+              <div id="bookingSuccess" class="hidden mb-4 p-4 bg-[#1c3d1c] border border-[#4a7c4a]/40 rounded-xl text-[#9cdd9c] text-sm italic">
+                ✓ Prenotazione inviata! Ti contatteremo presto per confermare.
+              </div>
+
+              <!-- Error -->
+              <div id="bookingError" class="hidden mb-4 p-4 bg-[#3d1c1c] border border-[#7c4a4a]/40 rounded-xl text-[#dd9c9c] text-sm italic">
+                ⚠ Per favore compila tutti i campi.
+              </div>
+
+              <p class="mt-8 text-zinc-500 italic text-sm">
+                Aperto tutti i giorni: 12:00–14:30 / 19:00–23:00 &nbsp;|&nbsp; Tel: <a href="tel:3392734159" class="text-gold hover:underline">339 27 34 159</a>
+              </p>
+              <p class="text-zinc-600 italic text-xs mt-1">Via Porta Damiani 30, Pavia</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Info Cards -->
+    <section class="section pt-0">
+      <div class="container">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 fade-up">
+          <div class="card rounded-xl p-8 text-center">
+            <span class="material-symbols-outlined text-gold text-3xl mb-4 block">schedule</span>
+            <h3 class="text-base font-bold italic text-white mb-2">Orari</h3>
+            <p class="text-[#d8c2b2] font-light italic text-sm leading-relaxed">
+              Pranzo: 12:00–14:30<br/>
+              Cena: 19:00–23:00<br/>
+              Aperti tutti i giorni
+            </p>
+          </div>
+          <div class="card rounded-xl p-8 text-center">
+            <span class="material-symbols-outlined text-gold text-3xl mb-4 block">location_on</span>
+            <h3 class="text-base font-bold italic text-white mb-2">Dove Siamo</h3>
+            <p class="text-[#d8c2b2] font-light italic text-sm leading-relaxed">
+              Via Porta Damiani 30<br/>
+              27100 Pavia<br/>
+              Italia
+            </p>
+          </div>
+          <div class="card rounded-xl p-8 text-center">
+            <span class="material-symbols-outlined text-gold text-3xl mb-4 block">phone_enabled</span>
+            <h3 class="text-base font-bold italic text-white mb-2">Contatti</h3>
+            <p class="text-[#d8c2b2] font-light italic text-sm leading-relaxed">
+              <a href="tel:3392734159" class="text-gold hover:underline">339 27 34 159</a><br/>
+              Scrivici per eventi<br/>e prenotazioni private
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ══ FOOTER ══ -->
+  <footer class="bg-[#0e0e0e] rounded-t-[24px] border-t border-[#534438]/15">
+    <div class="container py-12 px-8">
+      <div class="flex flex-col md:flex-row justify-between items-center gap-8">
+        <div class="text-center md:text-left">
+          <div class="text-lg font-bold italic text-gold mb-1">MuuuTeca</div>
+          <p class="text-zinc-500 text-xs italic">L'essenza della carne, lo spirito del vino a Pavia.</p>
+        </div>
+        <nav class="flex flex-wrap justify-center gap-6 md:gap-8">
+          <a href="chi-siamo.html"    class="text-zinc-500 hover:text-gold transition-colors font-medium italic text-xs">Chi Siamo</a>
+          <a href="menu.html"          class="text-zinc-500 hover:text-gold transition-colors font-medium italic text-xs">Menu</a>
+          <a href="prenotazioni.html" class="text-zinc-500 hover:text-gold transition-colors font-medium italic text-xs">Prenotazioni</a>
+        </nav>
+        <div class="text-zinc-600 font-medium italic text-xs">© 2024 MuuuTeca. Tutti i diritti riservati.</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
