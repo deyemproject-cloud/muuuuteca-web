@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="it" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Carta dei Vini — MuuuTeca</title>
+  <meta name="description" content="La carta dei vini di MuuuTeca — etichette d'annata, riserve storiche, degustazioni guidate. Il calice perfetto per ogni taglio." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL,GRAD,opsz@0,400,0,1,24&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg:#0a0a0a;--surface:#131313;--surface-low:#1c1b1b;--surface-mid:#20201f;
+      --surface-high:#2a2a2a;--surface-hi2:#353534;--surface-hi3:#3a3939;
+      --gold:#f0b429;--gold-dark:#d4af37;--text:#ffffff;--text-muted:#d0c5af;--text-dim:#a0a090;
+      --outline:rgba(240,180,41,0.25);--border-ghost:rgba(77,70,53,0.15);
+    }
+    *{box-sizing:border-box;margin:0;padding:0;}html{scroll-behavior:smooth;}
+    body{background:var(--bg);color:var(--text);font-family:'Manrope',sans-serif;letter-spacing:-0.01em;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+    .serif{font-family:'Noto Serif',serif;}.gold{color:var(--gold);}
+    .gold-serif{font-family:'Noto Serif',serif;color:var(--gold);font-style:italic;}
+    .btn-gold{background:linear-gradient(135deg,var(--gold) 0%,var(--gold-dark) 100%);color:#0a0a0a;font-weight:700;font-family:'Manrope',sans-serif;text-transform:uppercase;letter-spacing:0.06em;border:none;cursor:pointer;transition:all 0.2s ease;display:inline-flex;align-items:center;justify-content:center;}
+    .btn-gold:hover{transform:scale(1.04);box-shadow:0 8px 32px rgba(240,180,41,0.25);}
+    .btn-ghost{background:transparent;border:1px solid var(--outline);color:var(--text);font-weight:700;font-family:'Manrope',sans-serif;text-transform:uppercase;letter-spacing:0.06em;cursor:pointer;transition:all 0.2s ease;display:inline-flex;align-items:center;justify-content:center;}
+    .btn-ghost:hover{background:rgba(240,180,41,0.08);border-color:var(--gold);}
+    .nav-glass{background:rgba(19,19,19,0.82);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border-ghost);}
+    .mobile-menu{transform:translateX(100%);transition:transform 0.35s cubic-bezier(0.4,0,0.2,1);}
+    .mobile-menu.open{transform:translateX(0);}
+    ::-webkit-scrollbar{width:5px;}::-webkit-scrollbar-track{background:var(--bg);}::-webkit-scrollbar-thumb{background:var(--gold);border-radius:3px;}
+    .section-label{font-family:'Manrope',sans-serif;font-weight:700;font-size:0.6rem;text-transform:uppercase;letter-spacing:0.25em;color:var(--gold);}
+    .fade-up{opacity:0;transform:translateY(30px);transition:opacity 0.7s ease,transform 0.7s ease;}
+    .fade-up.visible{opacity:1;transform:translateY(0);}
+    .mi{font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24;}
+    .img-zoom{overflow:hidden;}.img-zoom img{transition:transform 0.6s ease;}.img-zoom:hover img{transform:scale(1.07);}
+    .wine-item{padding:1.75rem 0;border-bottom:1px solid rgba(77,70,53,0.1);}
+    .wine-item:last-child{border-bottom:none;}
+    .wine-price{color:var(--gold);font-weight:700;font-size:1rem;}
+    .wine-name{font-family:'Noto Serif',serif;font-size:1.05rem;font-weight:700;font-style:italic;color:var(--text);margin-bottom:0.3rem;}
+    .wine-meta{color:var(--text-dim);font-size:0.72rem;font-weight:600;text-transform:uppercase;letter-spacing:0.15em;margin-bottom:0.4rem;}
+  </style>
+</head>
+<body>
+
+  <!-- ══ NAVIGATION ══ -->
+  <nav class="nav-glass fixed top-0 left-0 right-0 z-50">
+    <div class="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between h-16 md:h-20">
+      <a href="index.html" class="serif text-2xl font-bold italic gold tracking-tight">MuuuTeca</a>
+      <div class="hidden lg:flex items-center gap-8">
+        <a href="index.html"           class="text-sm font-medium text-[var(--text-dim)] hover:text-white transition-colors">Home</a>
+        <a href="chi-siamo.html"      class="text-sm font-medium text-[var(--text-dim)] hover:text-white transition-colors">Chi Siamo</a>
+        <a href="menu.html"            class="text-sm font-medium text-[var(--text-dim)] hover:text-white transition-colors">Menu</a>
+        <a href="carta-dei-vini.html" class="text-sm font-medium text-white border-b-2 border-[var(--gold)] pb-0.5">Carta dei Vini</a>
+        <a href="prenotazioni.html"    class="text-sm font-medium text-[var(--text-dim)] hover:text-white transition-colors">Prenotazioni</a>
+      </div>
+      <a href="prenotazioni.html" class="hidden lg:inline-flex btn-gold px-6 py-2.5 text-xs rounded-sm">Prenota un Tavolo</a>
+      <button id="menuBtn" class="lg:hidden text-[var(--text-muted)] hover:text-white p-1" aria-label="Menu"><span class="mi text-3xl">menu</span></button>
+    </div>
+  </nav>
+
+  <!-- ══ MOBILE DRAWER ══ -->
+  <div id="mobileMenu" class="mobile-menu fixed inset-0 z-[60] flex">
+    <div id="mobileBackdrop" class="absolute inset-0 bg-black/70 backdrop-blur-sm"></div>
+    <div class="relative ml-auto w-80 h-full bg-[var(--surface-low)] flex flex-col p-8 shadow-2xl">
+      <button id="closeMenuBtn" class="self-end text-[var(--text-dim)] hover:text-white mb-10" aria-label="Close"><span class="mi text-3xl">close</span></button>
+      <nav class="flex flex-col gap-6">
+        <a href="index.html"           class="text-[var(--text-muted)] hover:text-[var(--gold)] transition-colors serif text-lg italic">Home</a>
+        <a href="chi-siamo.html"      class="text-[var(--text-muted)] hover:text-[var(--gold)] transition-colors serif text-lg italic">Chi Siamo</a>
+        <a href="menu.html"            class="text-[var(--text-muted)] hover:text-[var(--gold)] transition-colors serif text-lg italic">Menu</a>
+        <a href="carta-dei-vini.html" class="text-white font-semibold serif text-lg italic">Carta dei Vini</a>
+        <a href="prenotazioni.html"   class="text-[var(--text-muted)] hover:text-[var(--gold)] transition-colors serif text-lg italic">Prenotazioni</a>
+      </nav>
+      <div class="mt-auto"><a href="prenotazioni.html" class="btn-gold block text-center px-6 py-3 text-xs rounded-sm" onclick="closeMenu()">Prenota un Tavolo</a></div>
+    </div>
+  </div>
+
+  <!-- ══ HERO ══ -->
+  <section class="relative min-h-screen flex items-center overflow-hidden">
+    <div class="absolute inset-0 z-0">
+      <img
+        src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=1920&q=85"
+        alt="La carta dei vini MuuuTeca"
+        class="w-full h-full object-cover opacity-40"
+        loading="eager"
+      />
+      <div class="absolute inset-0 bg-gradient-to-r from-black/90 via-black/50 to-black/20"></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+    </div>
+    <div class="relative z-10 max-w-5xl px-8 md:px-16 lg:px-24 pt-32">
+      <p class="section-label mb-6 fade-up">La Nostra Carta</p>
+      <h1 class="serif text-5xl md:text-7xl lg:text-8xl font-light text-white leading-tight mb-8 tracking-tight fade-up">
+        La Carta dei <em class="gold-serif font-bold">Vini</em>
+      </h1>
+      <p class="text-lg md:text-xl text-[var(--text-muted)] max-w-xl leading-relaxed font-light fade-up">
+        Un archivio di sapori curato per chi cerca l'eccellenza nel calice.
+      </p>
+    </div>
+  </section>
+
+  <!-- ══ WINE CATEGORIES ══ -->
+  <section class="bg-[var(--surface-low)] py-28 md:py-40">
+    <div class="max-w-7xl mx-auto px-6 md:px-12">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 fade-up">
+        <div class="bg-[var(--surface-mid)] overflow-hidden">
+          <div class="img-zoom h-64">
+            <img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=600&q=80" alt="Riserve Storiche" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div class="p-8">
+            <h3 class="serif text-lg font-bold italic text-white mb-2">Riserve Storiche</h3>
+            <p class="text-[var(--text-muted)] font-light italic text-sm leading-relaxed">Etichette d'annata selezionate dai vigneti più prestigiosi d'Italia e del mondo. Annate rare che raccontano storie di terroir straordinari.</p>
+          </div>
+        </div>
+        <div class="bg-[var(--surface-mid)] overflow-hidden">
+          <div class="img-zoom h-64">
+            <img src="https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?w=600&q=80" alt="Degustazioni Guidate" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div class="p-8">
+            <h3 class="serif text-lg font-bold italic text-white mb-2">Degustazioni Guidate</h3>
+            <p class="text-[var(--text-muted)] font-light italic text-sm leading-relaxed">Percorsi sensoriali curati dal nostro sommelier per esplorare abbinamenti sorprendente tra carne e calice.</p>
+          </div>
+        </div>
+        <div class="bg-[var(--surface-mid)] overflow-hidden">
+          <div class="img-zoom h-64">
+            <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80" alt="Terroir e Territorio" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div class="p-8">
+            <h3 class="serif text-lg font-bold italic text-white mb-2">Terroir e Territorio</h3>
+            <p class="text-[var(--text-muted)] font-light italic text-sm leading-relaxed">La celebrazione del legame indissolubile tra la terra e il calice. Vini che parlano del loro luogo d'origine.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ FEATURED WINES ══ -->
+  <section class="bg-[var(--surface)] py-28 md:py-40">
+    <div class="max-w-4xl mx-auto px-6 md:px-12">
+
+      <!-- Rossi d'Italia -->
+      <div class="mb-16 fade-up">
+        <div class="flex items-center gap-3 mb-8">
+          <div class="text-[var(--gold)] text-xl">🍷</div>
+          <h2 class="serif text-2xl font-bold italic text-white">Rossi d'Italia</h2>
+        </div>
+        <div class="space-y-0">
+          <div class="wine-item flex justify-between items-start gap-6">
+            <div>
+              <p class="wine-meta">Piemonte · 2018</p>
+              <h3 class="wine-name">Barolo DOCG</h3>
+              <p class="text-[var(--text-dim)] font-light italic text-sm leading-relaxed">Scala Complessa di ciliegia, rosa appassita, grafite. tannini setosi, finale persistente. Affinato 36 mesi in botte grande.</p>
+            </div>
+            <span class="wine-price shrink-0">€ 85</span>
+          </div>
+          <div class="wine-item flex justify-between items-start gap-6">
+            <div>
+              <p class="wine-meta">Toscana · 2018</p>
+              <h3 class="wine-name">Brunello di Montalcino DOCG</h3>
+              <p class="text-[var(--text-dim)] font-light italic text-sm leading-relaxed">Rubino profondo, note di visciola, cuoio e tabacco dolce. Corpo pieno, elegante, con tannini maturi e un finale magniloquente.</p>
+            </div>
+            <span class="wine-price shrink-0">€ 90</span>
+          </div>
+          <div class="wine-item flex justify-between items-start gap-6">
+            <div>
+              <p class="wine-meta">Toscana · 2019</p>
+              <h3 class="wine-name">Sassicaia DOC Bolgheri</h3>
+              <p class="text-[var(--text-dim)] font-light italic text-sm leading-relaxed">Cabernet Sauvignon in purezza. Naso di cassis, cedro e sottobosco. Struttura aristocratica, chiusura di grande classe.</p>
+            </div>
+            <span class="wine-price shrink-0">€ 95</span>
+          </div>
+          <div class="wine-item flex justify-between items-start gap-6">
+            <div>
+              <p class="wine-meta">Veneto · 2017</p>
+              <h3 class="wine-name">Amarone della Valpolicella DOCG</h3>
+              <p class="text-[var(--text-dim)] font-light italic text-sm leading-relaxed">Uve appassite 120 giorni. Confettura di frutti rossi, cioccolato fondente, spezie orientali. Alcol 16%, corpo opulento, dolcezza perfettamente integrata.</p>
+            </div>
+            <span class="wine-price shrink-0">€ 88</span>
+          </div>
+          <div class="wine-item flex justify-between items-start gap-6">
+            <div>
+              <p class="wine-meta">Toscana · 2020</p>
+              <h3 class="wine-name">Tignanello DOC</h3>
+              <p class="text-[var(--text-dim)] font-light italic text-sm leading-relaxed">Sangiovese e Cabernet. Terra, ciliegia nera, vaniglia dolce. Bocca avvolgente, tannini fini, persistenza erbacea delicata.</p>
+            </div>
+            <span class="wine-price shrink-0">€ 75</span>
+          </div>
+          <div class="wine-item flex justify-between items-start gap-6">
+            <div>
+              <p class="wine-meta">Lombardia · 2019</p>
+              <h3 class="wine-name">Franciacorta Satin DOCG</h3>
+              <p class="text-[var(--text-dim)] font-light italic text-sm leading-relaxed">Metodo classico rosso, Pinot Nero in purezza. Matura 48 mesi sui lieviti. Croccante di piccoli frutti rossi, pane tostato, finale sapido.</p>
+            </div>
+            <span class="wine-price shrink-0">€ 65</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Selezioni del Territorio -->
+      <div class="mb-16 fade-up">
+        <div class="flex items-center gap-3 mb-8">
+          <div class="text-[var(--gold)] text-xl">🏔️</div>
+          <h2 class="serif text-2xl font-bold italic text-white">Selezioni del Territorio</h2>
+        </div>
+        <div class="space-y-0">
+          <div class="wine-item flex justify-between items-start gap-6">
+            <div>
+              <p class="wine-meta">Umbria · 2020</p>
+              <h3 class="wine-name">Sagrantino di Montefalco DOCG</h3>
+              <p class="text-[var(--text-dim)] font-light italic text-sm leading-relaxed">Il più tannico dei vitigni italiani, domato dall'età. Frutto nero concentrato, erbe officinali, finale interminabile.</p>
+            </div>
+            <span class="wine-price shrink-0">€ 68</span>
+          </div>
+          <div class="wine-item flex justify-between items-start gap-6">
+            <div>
+              <p class="wine-meta">Sicilia · 2021</p>
+              <h3 class="wine-name">Etna Rosso DOC</h3>
+              <p class="text-[var(--text-dim)] font-light italic text-sm leading-relaxed">Nerello Mascalese dai versanti del vulcano. Minerale, agrumato, ciliegia rossa. Acidità brillante, finale vulcanico unico.</p>
+            </div>
+            <span class="wine-price shrink-0">€ 58</span>
+          </div>
+          <div class="wine-item flex justify-between items-start gap-6">
+            <div>
+              <p class="wine-meta">Campania · 2019</p>
+              <h3 class="wine-name">Aglianico del Taburno DOCG</h3>
+              <p class="text-[var(--text-dim)] font-light italic text-sm leading-relaxed">Il "Barolo del Sud". Prugna nera, humus, spezie. Struttura imponente, tannini severi che premiano la pazienza.</p>
+            </div>
+            <span class="wine-price shrink-0">€ 55</span>
+          </div>
+          <div class="wine-item flex justify-between items-start gap-6">
+            <div>
+              <p class="wine-meta">Marche · 2020</p>
+              <h3 class="wine-name">Conero Riserva DOCG</h3>
+              <p class="text-[var(--text-dim)] font-light italic text-sm leading-relaxed">Montepulciano in purezza, 24 mesi di affinamento. Mora matura, liquirizia, tabacco dolce. Morbido e generoso.</p>
+            </div>
+            <span class="wine-price shrink-0">€ 52</span>
+          </div>
+          <div class="wine-item flex justify-between items-start gap-6">
+            <div>
+              <p class="wine-meta">Abruzzo · 2021</p>
+              <h3 class="wine-name">Montepulciano d'Abruzzo Collecorvino</h3>
+              <p class="text-[var(--text-dim)] font-light italic text-sm leading-relaxed">Frutto croccante, ciliegia matura, leggero tocco speziato. Il classico che non delude mai, perfetto con la griglia.</p>
+            </div>
+            <span class="wine-price shrink-0">€ 38</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Per Calici -->
+      <div class="fade-up">
+        <div class="flex items-center gap-3 mb-8">
+          <div class="text-[var(--gold)] text-xl">🥂</div>
+          <h2 class="serif text-2xl font-bold italic text-white">Per Calici</h2>
+          <span class="text-[var(--text-dim)] text-xs font-light italic ml-2">(serviti al calice)</span>
+        </div>
+        <div class="space-y-0">
+          <div class="wine-item flex justify-between items-start gap-6">
+            <div>
+              <p class="wine-meta">Toscana · Calice</p>
+              <h3 class="wine-name">Chianti Classico DOCG</h3>
+              <p class="text-[var(--text-dim)] font-light italic text-sm leading-relaxed">Giovane e diretto, ciliegia e violetta. Il compagno ideale per gli antipasti e i tagli più saporiti.</p>
+            </div>
+            <span class="wine-price shrink-0">€ 8</span>
+          </div>
+          <div class="wine-item flex justify-between items-start gap-6">
+            <div>
+              <p class="wine-meta">Veneto · Calice</p>
+              <h3 class="wine-name">Valpolicella Ripasso DOC</h3>
+              <p class="text-[var(--text-dim)] font-light italic text-sm leading-relaxed">Ripassato sulle vinacce dell'Amarone. Più strutturato del classico, con note di frutta matura e spezie.</p>
+            </div>
+            <span class="wine-price shrink-0">€ 10</span>
+          </div>
+          <div class="wine-item flex justify-between items-start gap-6">
+            <div>
+              <p class="wine-meta">Piemonte · Calice</p>
+              <h3 class="wine-name">Barbera d'Alba DOC</h3>
+              <p class="text-[var(--text-dim)] font-light italic text-sm leading-relaxed">Acidità vivace, ciliegia croccante, finale leggermente pepato. Perfetto con la griglia, senza appesantire.</p>
+            </div>
+            <span class="wine-price shrink-0">€ 9</span>
+          </div>
+          <div class="wine-item flex justify-between items-start gap-6">
+            <div>
+              <p class="wine-meta">Lombardia · Calice</p>
+              <h3 class="wine-name">Franciacorta Brut DOCG</h3>
+              <p class="text-[var(--text-dim)] font-light italic text-sm leading-relaxed">Metodo classico, 24 mesi sui lieviti. Croccante di mela verde, pane tostato, bolla finissima. Per aperitivo o con carpacci.</p>
+            </div>
+            <span class="wine-price shrink-0">€ 12</span>
+          </div>
+          <div class="wine-item flex justify-between items-start gap-6">
+            <div>
+              <p class="wine-meta">Sicilia · Calice</p>
+              <h3 class="wine-name">Grillo Siciliano</h3>
+              <p class="text-[var(--text-dim)] font-light italic text-sm leading-relaxed">Bianco Mediterraneo, agrumi, erbe spontanee, minerale. Fresco e persistente, eccellente con salumi e formaggi.</p>
+            </div>
+            <span class="wine-price shrink-0">€ 7</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══ BOOKING CTA ══ -->
+  <section class="bg-[var(--surface-low)] py-28 md:py-40 relative overflow-hidden">
+    <div class="absolute inset-0 opacity-5" style="background-image:url('https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=1200&q=10');background-size:cover;background-position:center;"></div>
+    <div class="relative z-10 max-w-3xl mx-auto px-6 text-center fade-up">
+      <div class="text-[var(--gold)] text-4xl mb-6">🍷</div>
+      <h2 class="serif text-4xl md:text-6xl font-light text-white mb-6">
+        Abbina il <em class="gold-serif font-bold">Vino</em> alla <em class="gold-serif font-bold">Carne</em>
+      </h2>
+      <p class="text-[var(--text-muted)] font-light italic text-lg mb-12 leading-relaxed">
+        Lasciati consigliare dal nostro team. Prenota il tuo tavolo e scopri gli abbinamenti che abbiamo preparato per te.
+      </p>
+      <a href="prenotazioni.html" class="btn-gold px-12 py-4 text-sm rounded-sm">Prenota un Tavolo</a>
+      <p class="mt-8 text-[var(--text-dim)] text-sm font-light">Aperto tutti i giorni: 12:00–14:30 / 19:00–23:00 &nbsp;|&nbsp; Tel. <a href="tel:3292734159" class="text-[var(--gold)] hover:underline">329.27.34.159</a></p>
+    </div>
+  </section>
+
+  <!-- ══ FOOTER ══ -->
+  <footer class="bg-[var(--bg)] border-t border-[var(--border-ghost)] py-12">
+    <div class="max-w-7xl mx-auto px-6 md:px-12">
+      <div class="flex flex-col md:flex-row justify-between items-center gap-8">
+        <div class="text-center md:text-left">
+          <div class="serif text-xl font-bold italic gold mb-1">MuuuTeca</div>
+          <p class="text-[var(--text-dim)] text-xs font-light italic">L'essenza della carne, lo spirito del vino, a Pavia.</p>
+        </div>
+        <nav class="flex flex-wrap justify-center gap-6 md:gap-8">
+          <a href="index.html"           class="text-[var(--text-dim)] hover:text-[var(--gold)] transition-colors font-medium text-xs uppercase tracking-wider">Home</a>
+          <a href="chi-siamo.html"      class="text-[var(--text-dim)] hover:text-[var(--gold)] transition-colors font-medium text-xs uppercase tracking-wider">Chi Siamo</a>
+          <a href="menu.html"            class="text-[var(--text-dim)] hover:text-[var(--gold)] transition-colors font-medium text-xs uppercase tracking-wider">Menu</a>
+          <a href="prenotazioni.html"   class="text-[var(--text-dim)] hover:text-[var(--gold)] transition-colors font-medium text-xs uppercase tracking-wider">Prenotazioni</a>
+        </nav>
+        <div class="text-[var(--text-dim)] font-medium text-xs">© 2024 MuuuTeca. Tutti i diritti riservati.</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const menuBtn=document.getElementById('menuBtn'),closeBtn=document.getElementById('closeMenuBtn'),mobileMenu=document.getElementById('mobileMenu'),backdrop=document.getElementById('mobileBackdrop');
+    function openMenu(){mobileMenu.classList.add('open');document.body.style.overflow='hidden';}function closeMenu(){mobileMenu.classList.remove('open');document.body.style.overflow='';}
+    menuBtn.addEventListener('click',openMenu);closeBtn.addEventListener('click',closeMenu);backdrop.addEventListener('click',closeMenu);
+    mobileMenu.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMenu));
+    const fadeEls=document.querySelectorAll('.fade-up');
+    const observer=new IntersectionObserver(e=>{e.forEach(ev=>{if(ev.isIntersecting){ev.target.classList.add('visible');observer.unobserve(ev.target);}});},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
+    fadeEls.forEach(el=>{el.style.opacity='0';el.style.transform='translateY(30px)';observer.observe(el);});
+  </script>
+</body>
+</html>
