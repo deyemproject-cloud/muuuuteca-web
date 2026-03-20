@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ── Nav: active link highlighting ── */
-  const pageLinks = document.querySelectorAll('.page-nav-link');
+  const pageLinks = document.querySelectorAll('.nav-link');
   if (pageLinks.length) {
     const id = window.location.pathname.split('/').pop().replace('.html', '') || 'index';
     pageLinks.forEach(a => {
@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
         (id === 'index' && href === 'index.html') ||
         (id !== 'index' && href === id + '.html')
       ) {
-        a.classList.add('nav-active');
+        a.classList.add('active');
       }
     });
   }
@@ -102,11 +102,11 @@ document.addEventListener('DOMContentLoaded', () => {
           observer.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
 
     fadeEls.forEach(el => {
       el.style.opacity = '0';
-      el.style.transform = 'translateY(30px)';
+      el.style.transform = 'translateY(28px)';
       observer.observe(el);
     });
   }

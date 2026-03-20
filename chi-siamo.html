@@ -5,184 +5,172 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Chi Siamo — MuuuTeca</title>
   <meta name="description" content="La storia di MuuuTeca — un ristorante di famiglia a Pavia nato dalla passione per la carne alla griglia e il vino." />
-
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL,GRAD,opsz@0,400,0,1,24&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&display=swap" />
 </head>
-<body class="antialiased overflow-x-hidden">
+<body>
 
-  <!-- ══ FLOATING PILL NAV ══ -->
   <nav id="navbar" class="nav-pill">
-    <a href="index.html" class="italic font-bold text-2xl text-gold tracking-tight">MuuuTeca</a>
-    <div class="hidden md:flex items-center gap-8">
-      <a href="index.html"            class="text-zinc-400 hover:text-white transition-colors italic">Home</a>
-      <a href="chi-siamo.html"       class="text-gold font-bold border-b-2 border-[var(--gold)] pb-0.5 italic">Chi Siamo</a>
-      <a href="menu.html"             class="text-zinc-400 hover:text-white transition-colors italic">Menu</a>
-      <a href="carta-dei-vini.html"  class="text-zinc-400 hover:text-white transition-colors italic">Carta dei Vini</a>
-      <a href="prenotazioni.html"     class="text-zinc-400 hover:text-white transition-colors italic">Prenotazioni</a>
+    <a href="index.html" class="nav-logo">MuuuTeca</a>
+    <div class="nav-links">
+      <a href="index.html"           class="nav-link">Home</a>
+      <a href="chi-siamo.html"      class="nav-link active">Chi Siamo</a>
+      <a href="menu.html"            class="nav-link">Menu</a>
+      <a href="carta-dei-vini.html" class="nav-link">Carta dei Vini</a>
+      <a href="prenotazioni.html"    class="nav-link">Prenotazioni</a>
     </div>
-    <a href="prenotazioni.html" class="btn-gold px-6 py-2 italic text-sm hidden md:inline-flex">Prenota un Tavolo</a>
-    <button id="menuBtn" class="md:hidden text-zinc-400 hover:text-white p-1" aria-label="Menu">
-      <span class="material-symbols-outlined text-3xl">menu</span>
+    <a href="prenotazioni.html" class="btn-cta-white nav-cta-desktop">Book a Table</a>
+    <button id="menuBtn" class="nav-hamburger" aria-label="Menu">
+      <span class="material-symbols-outlined" style="font-size:1.75rem">menu</span>
     </button>
   </nav>
 
-  <!-- ══ MOBILE DRAWER ══ -->
-  <div id="mobileMenu" class="mobile-menu fixed inset-0 z-[60] flex">
-    <div id="mobileBackdrop" class="absolute inset-0 bg-black/70 backdrop-blur-sm"></div>
-    <div class="relative ml-auto w-80 h-full bg-[var(--surface-low)] flex flex-col p-8 shadow-2xl rounded-l-2xl">
-      <button id="closeMenuBtn" class="self-end text-zinc-400 hover:text-white mb-10" aria-label="Close">
-        <span class="material-symbols-outlined text-3xl">close</span>
+  <div id="mobileMenu" class="mobile-menu">
+    <div id="mobileBackdrop" class="mobile-backdrop"></div>
+    <div class="mobile-drawer">
+      <button id="closeMenuBtn" class="mobile-drawer-close" aria-label="Close">
+        <span class="material-symbols-outlined" style="font-size:1.75rem">close</span>
       </button>
-      <nav class="flex flex-col gap-6">
-        <a href="index.html"           class="text-zinc-400 hover:text-gold transition-colors italic text-lg">Home</a>
-        <a href="chi-siamo.html"      class="text-white font-semibold italic text-lg">Chi Siamo</a>
-        <a href="menu.html"            class="text-zinc-400 hover:text-gold transition-colors italic text-lg">Menu</a>
-        <a href="carta-dei-vini.html" class="text-zinc-400 hover:text-gold transition-colors italic text-lg">Carta dei Vini</a>
-        <a href="prenotazioni.html"    class="text-zinc-400 hover:text-gold transition-colors italic text-lg">Prenotazioni</a>
+      <nav class="mobile-nav">
+        <a href="index.html"           class="mobile-nav-link">Home</a>
+        <a href="chi-siamo.html"      class="mobile-nav-link active">Chi Siamo</a>
+        <a href="menu.html"            class="mobile-nav-link">Menu</a>
+        <a href="carta-dei-vini.html" class="mobile-nav-link">Carta dei Vini</a>
+        <a href="prenotazioni.html"    class="mobile-nav-link">Prenotazioni</a>
       </nav>
-      <div class="mt-auto"><a href="prenotazioni.html" class="btn-gold block text-center px-6 py-3 italic text-sm">Prenota un Tavolo</a></div>
+      <div class="mobile-nav-cta">
+        <a href="prenotazioni.html" class="btn-cta-white" style="width:100%;justify-content:center;">Book a Table</a>
+      </div>
     </div>
   </div>
 
-  <!-- ══ HERO ══ -->
-  <section class="relative page-hero overflow-hidden" style="padding-top: 8rem;">
-    <div class="absolute inset-0 z-0">
-      <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=1920&q=80" alt="La nostra storia" class="w-full h-full object-cover opacity-30" loading="eager" />
-      <div class="absolute inset-0 bg-gradient-to-b from-[var(--bg)] via-[var(--bg)]/70 to-[var(--bg)]"></div>
+  <!-- Hero -->
+  <section class="page-hero">
+    <div class="page-hero-bg">
+      <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=1920&q=80" alt="La nostra storia" loading="eager" />
     </div>
-    <div class="relative z-10 text-center px-6 max-w-4xl fade-up">
-      <p class="section-label mb-5 italic">Chi Siamo</p>
-      <h1 class="text-5xl md:text-7xl font-light italic text-white tracking-tight mb-6">
-        Una storia di <span class="text-gold-gradient font-bold">Famiglia</span>,<br/>Fuoco e <span class="text-gold-gradient font-bold">Vino</span>
-      </h1>
-      <p class="text-xl text-[var(--text-muted)] font-light italic max-w-2xl mx-auto leading-relaxed">
-        Nata dalla passione per la griglia e dal desiderio di condividere momenti autentici attorno a una tavola.
-      </p>
+    <div class="page-hero-content">
+      <p class="page-hero-eyebrow">Chi Siamo</p>
+      <h1 class="page-hero-headline">Una storia di <em>Famiglia</em>,<br/>Fuoco e <em>Vino</em></h1>
+      <p class="page-hero-sub">Nata dalla passione per la griglia e dal desiderio di condividere momenti autentici attorno a una tavola.</p>
     </div>
   </section>
 
   <main>
 
-    <!-- ══ LA STORIA ══ -->
-    <section class="section-lg bg-[var(--bg)]">
+    <!-- La Storia -->
+    <section class="section" style="background:var(--bg);">
       <div class="container">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <div class="space-y-8 fade-up">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;" class="fade-up">
+          <div style="display:flex;flex-direction:column;gap:1.25rem;">
             <div class="ornament">✦</div>
-            <p class="text-lg text-[var(--text-muted)] font-light italic leading-relaxed">
-              La MuuuTeca nasce da un'idea semplice: portare a <strong class="text-white">Pavia</strong> un luogo dove la carne è trattata con rispetto, il vino è scelto con cura e l'accoglienza è sincera. Non un semplice ristorante — un posto dove ti senti a casa.
+            <p style="font-family:var(--font-serif);font-style:italic;font-size:1rem;color:var(--text-muted);line-height:1.8;">
+              La MuuuTeca nasce da un'idea semplice: portare a <strong style="color:#fff;">Pavia</strong> un luogo dove la carne è trattata con rispetto, il vino è scelto con cura e l'accoglienza è sincera. Non un semplice ristorante — un posto dove ti senti a casa.
             </p>
-            <p class="text-lg text-[var(--text-muted)] font-light italic leading-relaxed">
-              Ogni sera accendiamo la <strong class="text-white">griglia</strong> con la stessa cura di sempre. Ogni taglio è selezionato personalmente. Ogni calice è versato per esaltare il piatto che hai davanti.
+            <p style="font-family:var(--font-serif);font-style:italic;font-size:1rem;color:var(--text-muted);line-height:1.8;">
+              Ogni sera accendiamo la <strong style="color:#fff;">griglia</strong> con la stessa cura del primo giorno. Ogni taglio è selezionato personalmente. Ogni calice è versato per esaltare il piatto che hai davanti.
             </p>
-            <p class="text-lg text-[var(--text-muted)] font-light italic leading-relaxed">
-              Venite per un pranzo veloce ma gustoso, restate per una <strong class="text-white italic">cena a Pavia</strong> che non dimenticherete. Organizziamo anche <strong class="text-white italic">degustazioni di carne e vino</strong> — eventi pensati per chi vuole esplorare, imparare, assaporare.
+            <p style="font-family:var(--font-serif);font-style:italic;font-size:1rem;color:var(--text-muted);line-height:1.8;">
+              Venite per un pranzo veloce ma gustoso, restate per una <strong style="color:#fff;">cena a Pavia</strong> che non dimenticherete. Organizziamo anche <strong style="color:#fff;">degustazioni di carne e vino</strong> — eventi pensati per chi vuole esplorare, imparare, assaporare.
             </p>
-            <div class="pt-4">
-              <p class="text-xl font-bold italic text-gold">
-                La griglia accesa. Il calice pieno. La tavola apparecchiata.<br/>Vi aspettiamo.
-              </p>
-            </div>
+            <p style="font-family:var(--font-serif);font-style:italic;font-weight:700;font-size:1.15rem;color:var(--gold);">
+              La griglia accesa. Il calice pieno. La tavola apparecchiata. Vi aspettiamo.
+            </p>
           </div>
-          <div class="fade-up">
-            <div class="rounded-2xl overflow-hidden img-zoom">
-              <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=900&q=80" alt="La tavola di MuuuTeca" class="w-full h-96 object-cover" loading="lazy" />
-            </div>
+          <div class="img-zoom" style="border-radius:16px;overflow:hidden;">
+            <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=900&q=80" alt="La tavola di MuuuTeca" style="width:100%;height:340px;object-fit:cover;" loading="lazy" />
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ══ I NOSTRI VALORI ══ -->
-    <section class="section-lg bg-[var(--surface-low)]">
+    <!-- Valori -->
+    <section class="section" style="background:var(--surface);">
       <div class="container">
-        <div class="text-center mb-16 fade-up">
-          <h2 class="text-4xl md:text-5xl font-light italic text-white">
-            I nostri <span class="text-gold font-bold">Valori</span>
-          </h2>
+        <div class="text-center fade-up" style="margin-bottom:3.5rem;">
+          <h2 class="section-title">I nostri <strong>Valori</strong></h2>
         </div>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 fade-up">
-          <div class="card-border p-10 text-center">
-            <span class="material-symbols-outlined text-gold text-4xl mb-6">favorite</span>
-            <h3 class="text-xl font-bold italic text-white mb-4">Passione</h3>
-            <p class="text-[var(--text-muted)] font-light italic text-sm leading-relaxed">Ogni piatto è un atto d'amore. Ogni sera, la stessa cura del primo giorno.</p>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.5rem;" class="fade-up">
+          <div class="card" style="text-align:center;">
+            <div class="card-body">
+              <span class="material-symbols-outlined card-icon" style="margin:0 auto 1rem;">favorite</span>
+              <h3 class="card-title" style="text-align:center;">Passione</h3>
+              <p class="card-text" style="text-align:center;">Ogni piatto è un atto d'amore. Ogni sera, la stessa cura del primo giorno.</p>
+            </div>
           </div>
-          <div class="card-border p-10 text-center">
-            <span class="material-symbols-outlined text-gold text-4xl mb-6">eco</span>
-            <h3 class="text-xl font-bold italic text-white mb-4">Qualità</h3>
-            <p class="text-[var(--text-muted)] font-light italic text-sm leading-relaxed">Solo tagli selezionati. Solo carni di provenienza certificata. Mai compromessi.</p>
+          <div class="card" style="text-align:center;">
+            <div class="card-body">
+              <span class="material-symbols-outlined card-icon" style="margin:0 auto 1rem;">eco</span>
+              <h3 class="card-title" style="text-align:center;">Qualità</h3>
+              <p class="card-text" style="text-align:center;">Solo tagli selezionati. Solo carni di provenienza certificata. Mai compromessi.</p>
+            </div>
           </div>
-          <div class="card-border p-10 text-center">
-            <span class="material-symbols-outlined text-gold text-4xl mb-6">diversity_3</span>
-            <h3 class="text-xl font-bold italic text-white mb-4">Comunità</h3>
-            <p class="text-[var(--text-muted)] font-light italic text-sm leading-relaxed">La tavola è il nostro cuore. Qui si condivide, si ride, si assapora — insieme.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ══ I NUMERI ══ -->
-    <section class="section-lg bg-[var(--bg)]">
-      <div class="container-narrow">
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center fade-up">
-          <div>
-            <div class="text-4xl md:text-5xl font-bold text-gold italic mb-2">100%</div>
-            <p class="text-[var(--text-dim)] italic text-sm">Carne certificata</p>
-          </div>
-          <div>
-            <div class="text-4xl md:text-5xl font-bold text-gold italic mb-2">80+</div>
-            <p class="text-[var(--text-dim)] italic text-sm">Etichette in carta</p>
-          </div>
-          <div>
-            <div class="text-4xl md:text-5xl font-bold text-gold italic mb-2">7</div>
-            <p class="text-[var(--text-dim)] italic text-sm">Giorni su 7 aperti</p>
-          </div>
-          <div>
-            <div class="text-4xl md:text-5xl font-bold text-gold italic mb-2">1</div>
-            <p class="text-[var(--text-dim)] italic text-sm">Grande Famiglia</p>
+          <div class="card" style="text-align:center;">
+            <div class="card-body">
+              <span class="material-symbols-outlined card-icon" style="margin:0 auto 1rem;">diversity_3</span>
+              <h3 class="card-title" style="text-align:center;">Comunità</h3>
+              <p class="card-text" style="text-align:center;">La tavola è il nostro cuore. Qui si condivide, si ride, si assapora — insieme.</p>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ══ CTA ══ -->
-    <section class="section-lg bg-[var(--surface-low)] text-center fade-up">
-      <div class="container-narrow">
-        <span class="material-symbols-outlined text-5xl text-gold mb-6">restaurant</span>
-        <h2 class="text-4xl md:text-5xl font-light italic text-white mb-6">
-          Vieni a trovarci a <span class="text-gold font-bold">Pavia</span>
-        </h2>
-        <p class="text-xl text-[var(--text-muted)] font-light italic mb-12 leading-relaxed">
-          La griglia ti aspetta. Prenota il tuo tavolo e lasciati conquistare.
+    <!-- Numeri -->
+    <section class="section-sm" style="background:var(--bg);">
+      <div class="container fade-up">
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;text-align:center;">
+          <div>
+            <div style="font-family:var(--font-serif);font-style:italic;font-weight:700;font-size:2.5rem;color:var(--gold);">100%</div>
+            <div style="font-family:var(--font-serif);font-style:italic;font-size:0.8rem;color:var(--text-dim);">Carne certificata</div>
+          </div>
+          <div>
+            <div style="font-family:var(--font-serif);font-style:italic;font-weight:700;font-size:2.5rem;color:var(--gold);">80+</div>
+            <div style="font-family:var(--font-serif);font-style:italic;font-size:0.8rem;color:var(--text-dim);">Etichette in carta</div>
+          </div>
+          <div>
+            <div style="font-family:var(--font-serif);font-style:italic;font-weight:700;font-size:2.5rem;color:var(--gold);">7</div>
+            <div style="font-family:var(--font-serif);font-style:italic;font-size:0.8rem;color:var(--text-dim);">Giorni su 7 aperti</div>
+          </div>
+          <div>
+            <div style="font-family:var(--font-serif);font-style:italic;font-weight:700;font-size:2.5rem;color:var(--gold);">1</div>
+            <div style="font-family:var(--font-serif);font-style:italic;font-size:0.8rem;color:var(--text-dim);">Grande Famiglia</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section" style="background:var(--surface);text-align:center;">
+      <div class="container-narrow fade-up">
+        <span class="material-symbols-outlined" style="font-size:3rem;color:var(--gold);margin-bottom:1.5rem;display:block;">restaurant</span>
+        <h2 class="section-title" style="margin-bottom:1rem;">Vieni a trovarci a <strong>Pavia</strong></h2>
+        <p class="section-sub" style="margin-bottom:2.5rem;">La griglia ti aspetta. Prenota il tuo tavolo e lasciati conquistare.</p>
+        <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+          <a href="prenotazioni.html" class="btn-primary">Prenota un Tavolo</a>
+          <a href="menu.html" class="btn-secondary">Scopri il Menu</a>
+        </div>
+        <p style="margin-top:2rem;font-family:var(--font-serif);font-style:italic;font-size:0.8rem;color:var(--text-dim);">
+          Via Festa Giovanni 85, Pavia &nbsp;|&nbsp; Tel. <a href="tel:3392734159" style="color:var(--gold);text-decoration:none;">339 27 34 159</a>
         </p>
-        <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href="prenotazioni.html" class="btn-gold px-10 py-4 italic text-lg">Prenota un Tavolo</a>
-          <a href="menu.html" class="btn-ghost px-10 py-4 italic text-lg">Scopri il Menu</a>
-        </div>
-        <p class="mt-8 text-[var(--text-dim)] italic text-sm">Via Festa Giovanni 85, Pavia &nbsp;|&nbsp; Tel. <a href="tel:3392734159" class="text-gold hover:underline">339 27 34 159</a></p>
       </div>
     </section>
 
   </main>
 
-  <!-- ══ FOOTER ══ -->
-  <footer class="bg-[var(--bg)] rounded-t-[24px] mt-20 border-t border-[var(--border-ghost)]">
-    <div class="flex flex-col md:flex-row justify-between items-center px-8 md:px-16 py-10 max-w-screen-2xl mx-auto gap-8">
+  <footer class="footer">
+    <div class="footer-inner">
       <div>
-        <div class="italic font-bold text-lg text-gold mb-2">MuuuTeca</div>
-        <p class="text-[var(--text-dim)] text-sm italic">L'essenza della carne, lo spirito del vino, a Pavia.</p>
+        <div class="footer-logo">MuuuTeca</div>
+        <div class="footer-tagline">L'essenza della carne, lo spirito del vino, a Pavia.</div>
       </div>
-      <nav class="flex flex-wrap justify-center gap-6 md:gap-8">
-        <a href="index.html"           class="text-[var(--text-dim)] hover:text-gold transition-colors font-medium italic text-sm">Home</a>
-        <a href="menu.html"             class="text-[var(--text-dim)] hover:text-gold transition-colors font-medium italic text-sm">Menu</a>
-        <a href="carta-dei-vini.html"  class="text-[var(--text-dim)] hover:text-gold transition-colors font-medium italic text-sm">Carta dei Vini</a>
-        <a href="prenotazioni.html"     class="text-[var(--text-dim)] hover:text-gold transition-colors font-medium italic text-sm">Prenotazioni</a>
+      <nav class="footer-links">
+        <a href="index.html"           class="footer-link">Home</a>
+        <a href="menu.html"            class="footer-link">Menu</a>
+        <a href="carta-dei-vini.html"  class="footer-link">Carta dei Vini</a>
+        <a href="prenotazioni.html"     class="footer-link">Prenotazioni</a>
       </nav>
-      <div class="text-[var(--text-dim)] italic text-sm">© 2024 MuuuTeca. Tutti i diritti riservati.</div>
+      <div class="footer-copy">© 2024 MuuuTeca. Tutti i diritti riservati.</div>
     </div>
   </footer>
 
