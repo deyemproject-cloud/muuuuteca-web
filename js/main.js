@@ -4,9 +4,23 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
+  /* ── Floating nav: scroll background ── */
+  const navbar = document.getElementById('navbar');
+  if (navbar) {
+    function updateNavBg() {
+      if (window.scrollY > 60) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    }
+    window.addEventListener('scroll', updateNavBg, { passive: true });
+    updateNavBg();
+  }
+
   /* ── Mobile menu ── */
   const menuBtn    = document.getElementById('menuBtn');
-  const closeBtn  = document.getElementById('closeMenuBtn');
+  const closeBtn   = document.getElementById('closeMenuBtn');
   const mobileMenu = document.getElementById('mobileMenu');
   const backdrop   = document.getElementById('mobileBackdrop');
 
@@ -23,40 +37,19 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  /* ── Nav: scroll background ── */
-  const navbar = document.getElementById('navbar');
-  if (navbar) {
-    function updateNavBg() {
-      if (window.scrollY > 50) {
-        navbar.style.background = 'rgba(28,27,27,0.95)';
-        navbar.style.boxShadow = '0 8px 32px rgba(0,0,0,0.4)';
-      } else {
-        navbar.style.background = 'rgba(28,27,27,0.65)';
-        navbar.style.boxShadow = '0 4px 16px rgba(0,0,0,0.2)';
-      }
-    }
-    window.addEventListener('scroll', updateNavBg, { passive: true });
-    updateNavBg();
-  }
-
   /* ── Nav: active link highlighting ── */
   const pageLinks = document.querySelectorAll('.page-nav-link');
   if (pageLinks.length) {
-    function setActiveLink() {
-      const id = window.location.pathname.split('/').pop().replace('.html', '') || 'index';
-      pageLinks.forEach(a => {
-        const href = a.getAttribute('href');
-        if (
-          (id === 'index' && href === 'index.html') ||
-          (id !== 'index' && href === id + '.html')
-        ) {
-          a.classList.add('nav-active');
-        } else {
-          a.classList.remove('nav-active');
-        }
-      });
-    }
-    setActiveLink();
+    const id = window.location.pathname.split('/').pop().replace('.html', '') || 'index';
+    pageLinks.forEach(a => {
+      const href = a.getAttribute('href');
+      if (
+        (id === 'index' && href === 'index.html') ||
+        (id !== 'index' && href === id + '.html')
+      ) {
+        a.classList.add('nav-active');
+      }
+    });
   }
 
   /* ── Booking form ── */
@@ -99,14 +92,13 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  /* ── Scroll animations (fade-up) ── */
+  /* ── Scroll fade-up animations ── */
   const fadeEls = document.querySelectorAll('.fade-up');
   if (fadeEls.length) {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          entry.target.style.opacity = '1';
-          entry.target.style.transform = 'translateY(0)';
+          entry.target.classList.add('visible');
           observer.unobserve(entry.target);
         }
       });
@@ -115,7 +107,6 @@ document.addEventListener('DOMContentLoaded', () => {
     fadeEls.forEach(el => {
       el.style.opacity = '0';
       el.style.transform = 'translateY(30px)';
-      el.style.transition = 'opacity 0.7s ease, transform 0.7s ease';
       observer.observe(el);
     });
   }

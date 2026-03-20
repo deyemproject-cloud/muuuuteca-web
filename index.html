@@ -8,429 +8,272 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL,GRAD,opsz@0,400,0,1,24&display=swap" rel="stylesheet" />
-
-  <style>
-    :root {
-      --bg:           #0a0a0a;
-      --surface:      #131313;
-      --surface-low:  #1c1b1b;
-      --surface-mid:  #20201f;
-      --surface-high: #2a2a2a;
-      --surface-hi2:  #353534;
-      --surface-hi3:  #3a3939;
-      --gold:         #f0b429;
-      --gold-dark:    #d4af37;
-      --gold-dim:     rgba(240,180,41,0.15);
-      --text:         #ffffff;
-      --text-muted:   #d0c5af;
-      --text-dim:     #a0a090;
-      --outline:      rgba(240,180,41,0.25);
-      --border-ghost: rgba(77,70,53,0.15);
-      --error:        #ffb4ab;
-    }
-
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: 'Manrope', sans-serif;
-      letter-spacing: -0.01em;
-      -webkit-font-smoothing: antialiased;
-      overflow-x: hidden;
-    }
-
-    .serif  { font-family: 'Noto Serif', serif; }
-    .gold   { color: var(--gold); }
-    .gold-serif {
-      font-family: 'Noto Serif', serif;
-      color: var(--gold);
-      font-style: italic;
-    }
-
-    .btn-gold {
-      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
-      color: #0a0a0a;
-      font-weight: 700;
-      font-family: 'Manrope', sans-serif;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      border: none;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .btn-gold:hover { transform: scale(1.04); box-shadow: 0 8px 32px rgba(240,180,41,0.25); }
-    .btn-gold:active { transform: scale(0.97); }
-
-    .btn-ghost {
-      background: transparent;
-      border: 1px solid var(--outline);
-      color: var(--text);
-      font-weight: 700;
-      font-family: 'Manrope', sans-serif;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .btn-ghost:hover { background: rgba(240,180,41,0.08); border-color: var(--gold); }
-
-    .nav-glass {
-      background: rgba(19,19,19,0.82);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border-bottom: 1px solid var(--border-ghost);
-    }
-
-    .mobile-menu {
-      transform: translateX(100%);
-      transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    .mobile-menu.open { transform: translateX(0); }
-
-    .img-zoom { overflow: hidden; }
-    .img-zoom img { transition: transform 0.6s ease; }
-    .img-zoom:hover img { transform: scale(1.07); }
-
-    input, select {
-      background: transparent;
-      border: none;
-      border-bottom: 1px solid rgba(153,144,124,0.5);
-      color: var(--text);
-      font-family: 'Manrope', sans-serif;
-      padding: 0.5rem 0;
-      transition: border-color 0.2s;
-      outline: none;
-      width: 100%;
-    }
-    input:focus, select:focus { border-bottom-color: var(--gold); border-bottom-width: 2px; }
-    input[type="date"]::-webkit-calendar-picker-indicator { filter: invert(0.7) sepia(1) saturate(2) hue-rotate(10deg); cursor: pointer; }
-    select { cursor: pointer; -webkit-appearance: none; appearance: none; }
-
-    ::-webkit-scrollbar { width: 5px; }
-    ::-webkit-scrollbar-track { background: var(--bg); }
-    ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 3px; }
-
-    .section-label {
-      font-family: 'Manrope', sans-serif;
-      font-weight: 700;
-      font-size: 0.6rem;
-      text-transform: uppercase;
-      letter-spacing: 0.25em;
-      color: var(--gold);
-    }
-
-    .ornament {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      color: var(--gold);
-      opacity: 0.5;
-      font-size: 1.2rem;
-    }
-    .ornament::before, .ornament::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: linear-gradient(to right, transparent, var(--gold), transparent);
-      opacity: 0.4;
-    }
-
-    .fade-up {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
-    }
-    .fade-up.visible { opacity: 1; transform: translateY(0); }
-
-    .mi { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
-  </style>
+  <link rel="stylesheet" href="css/style.css" />
 </head>
-<body>
+<body class="antialiased overflow-x-hidden">
 
-  <!-- ══ NAVIGATION ══ -->
-  <nav class="nav-glass fixed top-0 left-0 right-0 z-50">
-    <div class="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between h-16 md:h-20">
-      <a href="index.html" class="serif text-2xl font-bold italic gold tracking-tight">MuuuTeca</a>
-      <div class="hidden lg:flex items-center gap-8">
-        <a href="index.html"           class="text-sm font-medium text-white border-b-2 border-[var(--gold)] pb-0.5">Home</a>
-        <a href="chi-siamo.html"      class="text-sm font-medium text-[var(--text-dim)] hover:text-white transition-colors">Chi Siamo</a>
-        <a href="menu.html"            class="text-sm font-medium text-[var(--text-dim)] hover:text-white transition-colors">Menu</a>
-        <a href="carta-dei-vini.html" class="text-sm font-medium text-[var(--text-dim)] hover:text-white transition-colors">Carta dei Vini</a>
-        <a href="prenotazioni.html"    class="text-sm font-medium text-[var(--text-dim)] hover:text-white transition-colors">Prenotazioni</a>
-      </div>
-      <a href="prenotazioni.html" class="hidden lg:inline-flex btn-gold px-6 py-2.5 text-xs rounded-sm">Prenota un Tavolo</a>
-      <button id="menuBtn" class="lg:hidden text-[var(--text-muted)] hover:text-white p-1" aria-label="Menu">
-        <span class="mi text-3xl">menu</span>
-      </button>
+  <!-- ══ FLOATING PILL NAV ══ -->
+  <nav id="navbar" class="nav-pill">
+    <a href="index.html" class="italic font-bold text-2xl text-gold tracking-tight">MuuuTeca</a>
+
+    <div class="hidden md:flex items-center gap-8">
+      <a href="index.html"            class="text-gold font-bold border-b-2 border-[var(--gold)] pb-0.5 italic">Home</a>
+      <a href="chi-siamo.html"       class="text-zinc-400 hover:text-white transition-colors italic">Chi Siamo</a>
+      <a href="menu.html"             class="text-zinc-400 hover:text-white transition-colors italic">Menu</a>
+      <a href="carta-dei-vini.html"  class="text-zinc-400 hover:text-white transition-colors italic">Carta dei Vini</a>
+      <a href="prenotazioni.html"     class="text-zinc-400 hover:text-white transition-colors italic">Prenotazioni</a>
     </div>
+
+    <a href="prenotazioni.html" class="btn-gold px-6 py-2 italic text-sm hidden md:inline-flex">Prenota un Tavolo</a>
+    <button id="menuBtn" class="md:hidden text-zinc-400 hover:text-white p-1" aria-label="Menu">
+      <span class="material-symbols-outlined text-3xl">menu</span>
+    </button>
   </nav>
 
   <!-- ══ MOBILE DRAWER ══ -->
   <div id="mobileMenu" class="mobile-menu fixed inset-0 z-[60] flex">
     <div id="mobileBackdrop" class="absolute inset-0 bg-black/70 backdrop-blur-sm"></div>
-    <div class="relative ml-auto w-80 h-full bg-[var(--surface-low)] flex flex-col p-8 shadow-2xl">
-      <button id="closeMenuBtn" class="self-end text-[var(--text-dim)] hover:text-white mb-10" aria-label="Close">
-        <span class="mi text-3xl">close</span>
+    <div class="relative ml-auto w-80 h-full bg-[var(--surface-low)] flex flex-col p-8 shadow-2xl rounded-l-2xl">
+      <button id="closeMenuBtn" class="self-end text-zinc-400 hover:text-white mb-10" aria-label="Close">
+        <span class="material-symbols-outlined text-3xl">close</span>
       </button>
       <nav class="flex flex-col gap-6">
-        <a href="index.html"           class="text-white font-semibold serif text-lg italic">Home</a>
-        <a href="chi-siamo.html"      class="text-[var(--text-muted)] hover:text-[var(--gold)] transition-colors serif text-lg italic">Chi Siamo</a>
-        <a href="menu.html"            class="text-[var(--text-muted)] hover:text-[var(--gold)] transition-colors serif text-lg italic">Menu</a>
-        <a href="carta-dei-vini.html" class="text-[var(--text-muted)] hover:text-[var(--gold)] transition-colors serif text-lg italic">Carta dei Vini</a>
-        <a href="prenotazioni.html"   class="text-[var(--text-muted)] hover:text-[var(--gold)] transition-colors serif text-lg italic">Prenotazioni</a>
+        <a href="index.html"           class="text-white font-semibold italic text-lg">Home</a>
+        <a href="chi-siamo.html"       class="text-zinc-400 hover:text-gold transition-colors italic text-lg">Chi Siamo</a>
+        <a href="menu.html"             class="text-zinc-400 hover:text-gold transition-colors italic text-lg">Menu</a>
+        <a href="carta-dei-vini.html"  class="text-zinc-400 hover:text-gold transition-colors italic text-lg">Carta dei Vini</a>
+        <a href="prenotazioni.html"     class="text-zinc-400 hover:text-gold transition-colors italic text-lg">Prenotazioni</a>
       </nav>
       <div class="mt-auto">
-        <a href="prenotazioni.html" class="btn-gold block text-center px-6 py-3 text-xs rounded-sm" onclick="closeMenu()">Prenota un Tavolo</a>
+        <a href="prenotazioni.html" class="btn-gold block text-center px-6 py-3 italic text-sm">Prenota un Tavolo</a>
       </div>
     </div>
   </div>
 
-  <!-- ══ HERO ══ -->
-  <section id="hero" class="relative min-h-screen flex items-center overflow-hidden">
+  <!-- ══ FULL-BLEED HERO ══ -->
+  <header class="relative h-screen w-full flex items-center justify-center overflow-hidden">
     <div class="absolute inset-0 z-0">
       <img
+        alt="L'arte della carne e del vino"
+        class="w-full h-full object-cover opacity-60 scale-105"
         src="https://images.unsplash.com/photo-1558030006-450675393462?w=1920&q=85"
-        alt="MuuuTeca — la arte della carne"
-        class="w-full h-full object-cover opacity-35"
         loading="eager"
       />
-      <div class="absolute inset-0 bg-gradient-to-r from-black/90 via-black/50 to-black/20"></div>
+      <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-[var(--bg)]"></div>
     </div>
-    <div class="relative z-10 max-w-5xl px-8 md:px-16 lg:px-24 pt-24">
-      <p class="section-label mb-6">Tagli di manzo selezionati, vino di alta qualità</p>
-      <h1 class="serif text-5xl md:text-7xl lg:text-8xl font-light text-white leading-tight mb-8 tracking-tight">
-        Il regno della<br/>
-        <em class="gold-serif font-bold">Carne</em> a <em class="gold-serif font-bold">Pavia</em>
+    <div class="relative z-10 text-center px-6 max-w-5xl">
+      <p class="section-label mb-4 italic">Tagli di manzo selezionati, vino di alta qualità</p>
+      <h1 class="text-5xl md:text-7xl lg:text-8xl font-light italic text-white tracking-tight mb-6">
+        Il regno della <span class="text-gold-gradient font-bold">Carne</span> a <span class="text-gold-gradient font-bold">Pavia</span>
       </h1>
-      <p class="text-lg md:text-xl text-[var(--text-muted)] max-w-xl leading-relaxed mb-10 font-light">
-        Un'atmosfera che ti fa sentire a casa. Dove la tradizione incontra la passione per la <strong class="text-white">Griglia</strong>.
+      <p class="text-xl md:text-2xl text-[var(--text-muted)] font-light italic max-w-3xl mx-auto mb-12 leading-relaxed">
+        Un'atmosfera che ti fa sentire a casa. Dove la tradizione incontra la passione per la <span class="font-bold text-white">Griglia</span>.
       </p>
-      <div class="flex flex-col sm:flex-row gap-4">
-        <a href="menu.html"       class="btn-gold px-8 py-3.5 text-sm rounded-sm">Scopri il Menu</a>
-        <a href="chi-siamo.html" class="btn-ghost px-8 py-3.5 text-sm rounded-sm">La Nostra Missione</a>
+      <div class="flex flex-col md:flex-row gap-4 justify-center items-center">
+        <a href="menu.html" class="btn-gold px-10 py-4 italic text-lg">Scopri il Menu</a>
+        <a href="chi-siamo.html" class="btn-ghost px-10 py-4 italic text-lg">La Nostra Missione</a>
       </div>
     </div>
-  </section>
+  </header>
 
-  <!-- ══ MISSIONE ══ -->
-  <section class="bg-[var(--surface-low)] py-28 md:py-40">
-    <div class="max-w-7xl mx-auto px-6 md:px-12">
-      <div class="text-center mb-20 fade-up">
-        <h2 class="serif text-4xl md:text-6xl font-light text-white mb-2">
-          La nostra <em class="gold-serif font-bold">Missione</em>
-        </h2>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-10 fade-up">
-        <div class="bg-[var(--surface-mid)] p-10 md:p-12">
-          <div class="text-[var(--gold)] text-2xl mb-6">🍽️</div>
-          <h3 class="serif text-xl font-bold italic text-white mb-4">Radici di Famiglia</h3>
-          <p class="text-[var(--text-muted)] font-light leading-relaxed text-sm">
-            La MuuuTeca è una storia di famiglia. Nasce attorno a una tavola, tra il profumo della brace, un calice di vino sincero e la voglia di condividere momenti autentici a <strong class="text-white">Pavia</strong>.
-          </p>
-        </div>
-        <div class="bg-[var(--surface-mid)] p-10 md:p-12">
-          <div class="text-[var(--gold)] text-2xl mb-6">🔥</div>
-          <h3 class="serif text-xl font-bold italic text-white mb-4">L'Anima della Brace</h3>
-          <p class="text-[var(--text-muted)] font-light leading-relaxed text-sm">
-            La nostra <strong class="text-[var(--gold)]">Passione</strong> si esprime attraverso il fuoco vivo. Selezioniamo solo carni di qualità superiore, trattate con rispetto e semplicità per esaltarne l'anima.
-          </p>
-        </div>
-        <div class="bg-[var(--surface-mid)] p-10 md:p-12">
-          <div class="text-[var(--gold)] text-2xl mb-6">🍷</div>
-          <h3 class="serif text-xl font-bold italic text-white mb-4">La Cantina Curata</h3>
-          <p class="text-[var(--text-muted)] font-light leading-relaxed text-sm">
-            Proponiamo una carta vini curata, con etichette italiane e internazionali, piccole cantine e grandi nomi, scelti per esaltare ogni boccone della nostra <strong class="text-white">Carne</strong>.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
+  <main>
 
-  <!-- ══ STORY ══ -->
-  <section class="bg-[var(--surface)] py-28 md:py-40">
-    <div class="max-w-7xl mx-auto px-6 md:px-12">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-        <div class="fade-up space-y-6">
-          <p class="text-[var(--text-muted)] font-light italic text-base md:text-lg leading-relaxed">
-            Ogni giorno apriamo le porte anche a chi cerca una <strong class="text-white italic">pausa pranzo a Pavia</strong> diversa dal solito: genuina, veloce ma con gusto. La sera, MuuuTeca diventa il posto perfetto per una <strong class="text-white italic">cena a Pavia</strong> all'insegna del gusto e della convivialità.
-          </p>
-          <p class="text-[var(--text-muted)] font-light italic text-base md:text-lg leading-relaxed">
-            Organizziamo regolarmente <strong class="text-white italic">degustazioni di carne e vino</strong>: eventi speciali pensati per esplorare tagli pregiati e tecniche di cottura sorprendenti.
-          </p>
-          <div class="ornament my-8">✦</div>
-          <p class="serif text-xl md:text-2xl italic text-[var(--gold)] leading-snug">
-            La MuuuTeca — Dove la carne è regina, il vino è complice e l'accoglienza è di casa.
-          </p>
-        </div>
-        <div class="fade-up img-zoom rounded-sm overflow-hidden">
-          <img
-            src="https://images.unsplash.com/photo-1544025162-d76694265947?w=900&q=80"
-            alt="Il nostro grill — brace viva"
-            class="w-full h-80 md:h-96 object-cover"
-            loading="lazy"
-          />
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══ CARNE & VINO ══ -->
-  <section class="bg-[var(--surface-low)] py-28 md:py-40">
-    <div class="max-w-7xl mx-auto px-6 md:px-12">
-      <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-16 fade-up">
-        <div>
-          <h2 class="serif text-4xl md:text-5xl font-light text-white mb-4">
-            Dove la <em class="gold-serif font-bold">Carne</em> incontra il <em class="gold-serif font-bold">Vino</em>
+    <!-- ══ LA NOSTRA MISSIONE ══ -->
+    <section class="section-lg bg-[var(--bg)]">
+      <div class="container">
+        <div class="text-center mb-16 fade-up">
+          <h2 class="text-4xl md:text-6xl font-light italic tracking-tight text-white">
+            La nostra <span class="text-gold font-bold">Missione</span>
           </h2>
-          <p class="text-[var(--text-muted)] font-light italic text-base">Un archivio di sapori curato per chi cerca l'eccellenza nel calice e nel piatto.</p>
         </div>
-        <a href="carta-dei-vini.html" class="text-[var(--gold)] font-bold text-sm border-b border-[var(--gold)]/40 pb-0.5 hover:border-[var(--gold)] transition-all shrink-0">
-          Visualizza la Carta dei Vini →
-        </a>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 fade-up">
-        <div class="bg-[var(--surface-mid)] overflow-hidden">
-          <div class="img-zoom h-64">
-            <img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=600&q=80" alt="Riserve Storiche" class="w-full h-full object-cover" loading="lazy" />
-          </div>
-          <div class="p-8">
-            <h3 class="serif text-lg font-bold italic text-white mb-2">Riserve Storiche</h3>
-            <p class="text-[var(--text-muted)] font-light italic text-sm leading-relaxed">Etichette d'annata selezionate dai vigneti più prestigiosi d'Italia e del mondo.</p>
-          </div>
-        </div>
-        <div class="bg-[var(--surface-mid)] overflow-hidden">
-          <div class="img-zoom h-64">
-            <img src="https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?w=600&q=80" alt="Degustazioni Guidate" class="w-full h-full object-cover" loading="lazy" />
-          </div>
-          <div class="p-8">
-            <h3 class="serif text-lg font-bold italic text-white mb-2">Degustazioni Guidate</h3>
-            <p class="text-[var(--text-muted)] font-light italic text-sm leading-relaxed">Percorsi sensoriali curati dal nostro sommelier per scoprire nuovi orizzonti.</p>
-          </div>
-        </div>
-        <div class="bg-[var(--surface-mid)] overflow-hidden">
-          <div class="img-zoom h-64">
-            <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80" alt="Terroir e Territorio" class="w-full h-full object-cover" loading="lazy" />
-          </div>
-          <div class="p-8">
-            <h3 class="serif text-lg font-bold italic text-white mb-2">Terroir e Territorio</h3>
-            <p class="text-[var(--text-muted)] font-light italic text-sm leading-relaxed">La celebrazione del legame indissolubile tra la terra e il calice.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- ══ PRENOTAZIONI ══ -->
-  <section class="bg-[var(--surface)] py-28 md:py-40 relative overflow-hidden">
-    <div class="absolute inset-0 opacity-5" style="background-image: url('https://images.unsplash.com/photo-1559339352-11d035aa65de?w=1200&q=10'); background-size: cover; background-position: center;"></div>
-    <div class="relative z-10 max-w-3xl mx-auto px-6 text-center fade-up">
-      <div class="text-[var(--gold)] text-4xl mb-6">🍽️</div>
-      <h2 class="serif text-4xl md:text-6xl font-light text-white mb-6">
-        Prenota il tuo <em class="gold-serif font-bold">Tavolo</em>
-      </h2>
-      <p class="text-[var(--text-muted)] font-light italic text-lg mb-12 leading-relaxed">
-        Cerchi dove mangiare carne a <strong class="text-white">Pavia</strong>? MuuuTeca ti aspetta con <strong class="text-white">griglia accesa</strong> e calici pieni.
-      </p>
-      <form id="bookingForm" class="space-y-6 text-left">
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
-          <div class="flex flex-col items-start">
-            <label class="section-label mb-3">Data</label>
-            <input id="bookingDate" type="date" required />
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16 fade-up">
+          <!-- Card 1 -->
+          <div class="card-border p-8 flex flex-col">
+            <span class="material-symbols-outlined text-gold text-4xl mb-6">family_history</span>
+            <h3 class="text-2xl font-bold italic text-white mb-4">Radici di Famiglia</h3>
+            <p class="text-[var(--text-muted)] font-light italic leading-relaxed">
+              La MuuuTeca è una storia di famiglia. Nasce attorno a una tavola, tra il profumo della brace, un calice di vino sincero e la voglia di condividere momenti autentici a <span class="text-white font-bold">Pavia</span>.
+            </p>
           </div>
-          <div class="flex flex-col items-start">
-            <label class="section-label mb-3">Orario</label>
-            <select id="bookingTime" required>
-              <option value="" disabled selected>Orario</option>
-              <option value="12:00">12:00</option><option value="12:30">12:30</option>
-              <option value="13:00">13:00</option><option value="13:30">13:30</option>
-              <option value="14:00">14:00</option><option value="19:00">19:00</option>
-              <option value="19:30">19:30</option><option value="20:00">20:00</option>
-              <option value="20:30">20:30</option><option value="21:00">21:00</option>
-              <option value="21:30">21:30</option>
-            </select>
+          <!-- Card 2 -->
+          <div class="card-border p-8 flex flex-col">
+            <span class="material-symbols-outlined text-gold text-4xl mb-6">outdoor_grill</span>
+            <h3 class="text-2xl font-bold italic text-white mb-4">L'Anima della Brace</h3>
+            <p class="text-[var(--text-muted)] font-light italic leading-relaxed">
+              La nostra <span class="text-white font-bold">Passione</span> si esprime attraverso il fuoco vivo. Selezioniamo solo carni di qualità superiore, trattate con rispetto e semplicità per esaltarne l'anima.
+            </p>
           </div>
-          <div class="flex flex-col items-start">
-            <label class="section-label mb-3">Ospiti</label>
-            <select id="bookingGuests" required>
-              <option value="" disabled selected>Ospiti</option>
-              <option value="1">1 persona</option><option value="2">2 persone</option>
-              <option value="3">3 persone</option><option value="4">4 persone</option>
-              <option value="5">5 persone</option><option value="6">6 persone</option>
-              <option value="7+">7+ persone</option>
-            </select>
+          <!-- Card 3 -->
+          <div class="card-border p-8 flex flex-col">
+            <span class="material-symbols-outlined text-gold text-4xl mb-6">wine_bar</span>
+            <h3 class="text-2xl font-bold italic text-white mb-4">La Cantina Curata</h3>
+            <p class="text-[var(--text-muted)] font-light italic leading-relaxed">
+              Proponiamo una carta vini curata, con etichette italiane e internazionali, piccole cantine e grandi nomi, scelti per esaltare ogni boccone della nostra <span class="text-white font-bold">Carne</span>.
+            </p>
           </div>
         </div>
-        <div class="flex flex-col items-start">
-          <label class="section-label mb-3">Note / Richieste</label>
-          <input id="bookingNotes" type="text" placeholder="Allergie, occasioni speciali, preferenze..." />
+
+        <!-- Detailed Narrative -->
+        <div class="bg-[var(--surface-high)]/30 rounded-2xl p-8 md:p-12 fade-up">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div class="space-y-6">
+              <p class="text-lg text-[var(--text-muted)] font-light italic leading-relaxed">
+                Ogni giorno apriamo le porte anche a chi cerca una <span class="font-bold text-white italic">pausa pranzo a Pavia</span> diversa dal solito: genuina, veloce ma con gusto. La sera, MuuuTeca diventa il posto perfetto per una <span class="font-bold text-white italic">cena a Pavia</span> all'insegna del gusto e della convivialità.
+              </p>
+              <p class="text-lg text-[var(--text-muted)] font-light italic leading-relaxed">
+                Organizziamo regolarmente <span class="font-bold text-white italic">degustazioni di carne e vino</span>: eventi speciali pensati per esplorare tagli pregiati e tecniche di cottura sorprendenti.
+              </p>
+              <div class="pt-2">
+                <p class="text-xl font-bold italic text-gold">La MuuuTeca — Dove la carne è regina, il vino è complice e l'accoglienza è di casa.</p>
+              </div>
+            </div>
+            <div class="rounded-xl overflow-hidden shadow-2xl img-zoom">
+              <img alt="Il nostro grill" class="w-full h-80 object-cover" src="https://images.unsplash.com/photo-1544025162-d76694265947?w=900&q=80" loading="lazy" />
+            </div>
+          </div>
         </div>
-        <button type="submit" class="btn-gold w-full py-4 text-sm rounded-sm mt-4">Verifica Disponibilità</button>
-        <div id="bookingSuccess" class="hidden p-4 bg-[var(--surface-hi2)] border border-[var(--gold)]/30 text-[var(--text-muted)] text-sm italic rounded-sm">
-          ✓ Prenotazione inviata! Ti contatteremo presto per confermare.
-        </div>
-        <div id="bookingError" class="hidden p-4 bg-[var(--surface-hi2)] border border-[var(--error)]/30 text-[var(--error)] text-sm italic rounded-sm">
-          ⚠ Per favore compila tutti i campi richiesti.
-        </div>
-      </form>
-      <div class="mt-10 text-[var(--text-dim)] text-sm font-light space-y-1">
-        <p>Aperto tutti i giorni: 12:00–14:30 / 19:00–23:00 &nbsp;|&nbsp; Tel. <a href="tel:3392734159" class="text-[var(--gold)] hover:underline">329.27.34.159</a></p>
-        <p class="text-[var(--text-dim)]">Via Festa Giovanni 85, Pavia</p>
       </div>
-    </div>
-  </section>
+    </section>
+
+    <!-- ══ CARNE & VINO ══ -->
+    <section class="section-lg bg-[var(--surface-low)]">
+      <div class="container">
+        <div class="flex flex-col md:flex-row justify-between items-end gap-6 mb-16 fade-up">
+          <div class="max-w-2xl">
+            <h2 class="text-4xl md:text-5xl font-light italic mb-4 text-white">
+              Dove la <span class="text-gold font-bold">Carne</span> incontra il <span class="text-gold font-bold">Vino</span>
+            </h2>
+            <p class="text-lg text-[var(--text-muted)] font-light italic">Un archivio di sapori curato per chi cerca l'eccellenza nel calice e nel piatto.</p>
+          </div>
+          <a href="carta-dei-vini.html" class="text-gold font-bold italic border-b border-[var(--gold)]/40 pb-0.5 hover:border-[var(--gold)] transition-all shrink-0">
+            Visualizza la Carta dei Vini →
+          </a>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 fade-up">
+          <!-- Wine Card 1 -->
+          <div class="card">
+            <div class="h-64 img-zoom">
+              <img alt="Riserve Storiche" class="w-full h-full object-cover" src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=600&q=80" loading="lazy" />
+            </div>
+            <div class="p-8">
+              <h3 class="text-xl font-light italic text-white mb-2">Riserve Storiche</h3>
+              <p class="text-[var(--text-muted)] font-light italic text-sm leading-relaxed">Etichette d'annata selezionate dai vigneti più prestigiosi d'Italia e del mondo.</p>
+            </div>
+          </div>
+          <!-- Wine Card 2 -->
+          <div class="card">
+            <div class="h-64 img-zoom">
+              <img alt="Degustazioni Guidate" class="w-full h-full object-cover" src="https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?w=600&q=80" loading="lazy" />
+            </div>
+            <div class="p-8">
+              <h3 class="text-xl font-light italic text-white mb-2">Degustazioni Guidate</h3>
+              <p class="text-[var(--text-muted)] font-light italic text-sm leading-relaxed">Percorsi sensoriali curati dal nostro sommelier per scoprire nuovi orizzonti.</p>
+            </div>
+          </div>
+          <!-- Wine Card 3 -->
+          <div class="card">
+            <div class="h-64 img-zoom">
+              <img alt="Terroir e Territorio" class="w-full h-full object-cover" src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80" loading="lazy" />
+            </div>
+            <div class="p-8">
+              <h3 class="text-xl font-light italic text-white mb-2">Terroir e Territorio</h3>
+              <p class="text-[var(--text-muted)] font-light italic text-sm leading-relaxed">La celebrazione del legame indissolubile tra la terra e il calice.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ PRENOTAZIONI CTA ══ -->
+    <section class="section-lg bg-[var(--surface-high)] rounded-xl mx-4 md:mx-12 lg:mx-20 relative overflow-hidden">
+      <!-- Glow blobs -->
+      <div class="glow-blob w-72 h-72 -mr-32 -mt-32" style="top:0;right:0;"></div>
+      <div class="glow-blob w-72 h-72 -ml-32 -mb-32" style="bottom:0;left:0;"></div>
+
+      <div class="relative z-10 max-w-4xl mx-auto text-center fade-up">
+        <span class="material-symbols-outlined text-5xl text-gold mb-6">restaurant</span>
+        <h2 class="text-4xl md:text-6xl font-light italic mb-8 text-white">
+          Prenota il tuo <span class="text-gold font-bold">Tavolo</span>
+        </h2>
+        <p class="text-xl text-[var(--text-muted)] font-light italic mb-12 leading-relaxed">
+          Cerchi dove mangiare carne a <span class="font-bold text-white">Pavia</span>? MuuuTeca ti aspetta con <span class="font-bold text-white">griglia</span> accesa e calici pieni.
+        </p>
+
+        <!-- Inline booking row -->
+        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-10">
+          <input id="bookingDate" type="date" class="field-input max-w-xs" />
+          <select id="bookingTime" class="field-input max-w-xs">
+            <option value="" disabled selected>Orario</option>
+            <option value="12:00">12:00</option><option value="12:30">12:30</option>
+            <option value="13:00">13:00</option><option value="13:30">13:30</option>
+            <option value="14:00">14:00</option>
+            <option value="19:00">19:00</option><option value="19:30">19:30</option>
+            <option value="20:00">20:00</option><option value="20:30">20:30</option>
+            <option value="21:00">21:00</option><option value="21:30">21:30</option>
+          </select>
+          <select id="bookingGuests" class="field-input max-w-xs">
+            <option value="" disabled selected>Ospiti</option>
+            <option value="1">1 persona</option><option value="2">2 persone</option>
+            <option value="3">3 persone</option><option value="4">4 persone</option>
+            <option value="5">5 persone</option><option value="6">6 persone</option>
+            <option value="7+">7+ persone</option>
+          </select>
+        </div>
+
+        <button id="heroBookingBtn" class="btn-gold px-12 py-4 italic text-lg shadow-xl">
+          Verifica Disponibilità
+        </button>
+
+        <!-- Inline booking feedback -->
+        <div id="heroBookingSuccess" class="hidden mt-6 p-4 bg-[var(--surface-hi3)]/60 border border-[var(--gold)]/30 text-[var(--text-muted)] text-sm italic rounded-full">
+          ✓ Prenotazione inviata! Ti contatteremo a breve.
+        </div>
+        <div id="heroBookingError" class="hidden mt-6 p-4 bg-[var(--surface-hi3)]/60 border border-[var(--error)]/30 text-[var(--error)] text-sm italic rounded-full">
+          ⚠ Per favore seleziona data, orario e numero di ospiti.
+        </div>
+
+        <div class="mt-10 text-[var(--text-dim)] italic text-sm">
+          Aperto tutti i giorni: 12:00–14:30 / 19:00–23:00 &nbsp;|&nbsp; Tel. <a href="tel:3392734159" class="text-gold hover:underline">339 27 34 159</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
 
   <!-- ══ FOOTER ══ -->
-  <footer class="bg-[var(--bg)] border-t border-[var(--border-ghost)] py-12">
-    <div class="max-w-7xl mx-auto px-6 md:px-12">
-      <div class="flex flex-col md:flex-row justify-between items-center gap-8">
-        <div class="text-center md:text-left">
-          <div class="serif text-xl font-bold italic gold mb-1">MuuuTeca</div>
-          <p class="text-[var(--text-dim)] text-xs font-light italic">L'essenza della carne, lo spirito del vino, a Pavia.</p>
-        </div>
-        <nav class="flex flex-wrap justify-center gap-6 md:gap-8">
-          <a href="chi-siamo.html"      class="text-[var(--text-dim)] hover:text-[var(--gold)] transition-colors font-medium text-xs uppercase tracking-wider">Chi Siamo</a>
-          <a href="menu.html"            class="text-[var(--text-dim)] hover:text-[var(--gold)] transition-colors font-medium text-xs uppercase tracking-wider">Menu</a>
-          <a href="carta-dei-vini.html" class="text-[var(--text-dim)] hover:text-[var(--gold)] transition-colors font-medium text-xs uppercase tracking-wider">Carta dei Vini</a>
-          <a href="prenotazioni.html"    class="text-[var(--text-dim)] hover:text-[var(--gold)] transition-colors font-medium text-xs uppercase tracking-wider">Prenotazioni</a>
-        </nav>
-        <div class="text-[var(--text-dim)] font-medium text-xs">© 2024 MuuuTeca. Tutti i diritti riservati.</div>
+  <footer class="bg-[var(--bg)] rounded-t-[24px] mt-20 border-t border-[var(--border-ghost)]">
+    <div class="flex flex-col md:flex-row justify-between items-center px-8 md:px-16 py-10 max-w-screen-2xl mx-auto gap-8">
+      <div>
+        <div class="italic font-bold text-lg text-gold mb-2">MuuuTeca</div>
+        <p class="text-[var(--text-dim)] text-sm italic">L'essenza della carne, lo spirito del vino, a Pavia.</p>
       </div>
+      <nav class="flex flex-wrap justify-center gap-6 md:gap-8">
+        <a href="chi-siamo.html"       class="text-[var(--text-dim)] hover:text-gold transition-colors font-medium italic text-sm">Chi Siamo</a>
+        <a href="menu.html"             class="text-[var(--text-dim)] hover:text-gold transition-colors font-medium italic text-sm">Menu</a>
+        <a href="carta-dei-vini.html"  class="text-[var(--text-dim)] hover:text-gold transition-colors font-medium italic text-sm">Carta dei Vini</a>
+        <a href="prenotazioni.html"     class="text-[var(--text-dim)] hover:text-gold transition-colors font-medium italic text-sm">Prenotazioni</a>
+      </nav>
+      <div class="text-[var(--text-dim)] italic text-sm">© 2024 MuuuTeca. Tutti i diritti riservati.</div>
     </div>
   </footer>
 
+  <script src="js/main.js"></script>
   <script>
-    const menuBtn=document.getElementById('menuBtn'), closeBtn=document.getElementById('closeMenuBtn'),
-          mobileMenu=document.getElementById('mobileMenu'), backdrop=document.getElementById('mobileBackdrop');
-    function openMenu(){mobileMenu.classList.add('open');document.body.style.overflow='hidden';}
-    function closeMenu(){mobileMenu.classList.remove('open');document.body.style.overflow='';}
-    menuBtn.addEventListener('click',openMenu); closeBtn.addEventListener('click',closeMenu);
-    backdrop.addEventListener('click',closeMenu);
-    mobileMenu.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',closeMenu));
-
-    const fadeEls=document.querySelectorAll('.fade-up');
-    const observer=new IntersectionObserver(e=>{e.forEach(ev=>{if(ev.isIntersecting){ev.target.classList.add('visible');observer.unobserve(ev.target);}});},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
-    fadeEls.forEach(el=>{el.style.opacity='0';el.style.transform='translateY(30px)';observer.observe(el);});
-
-    const form=document.getElementById('bookingForm'), success=document.getElementById('bookingSuccess'), errorMsg=document.getElementById('bookingError');
-    const dateInput=document.getElementById('bookingDate');
-    if(dateInput) dateInput.min=new Date().toISOString().split('T')[0];
-    form.addEventListener('submit',e=>{
-      e.preventDefault(); success.classList.add('hidden'); errorMsg.classList.add('hidden');
-      const d=document.getElementById('bookingDate').value, t=document.getElementById('bookingTime').value, g=document.getElementById('bookingGuests').value;
-      if(!d||!t||!g){errorMsg.classList.remove('hidden');return;}
-      const btn=form.querySelector('button[type=submit]');
-      btn.disabled=true; btn.textContent='Invio in corso…'; btn.style.opacity='0.7';
-      setTimeout(()=>{success.classList.remove('hidden');form.reset();btn.disabled=false;btn.textContent='Verifica Disponibilità';btn.style.opacity='1';},1200);
+    /* Hero inline booking */
+    document.getElementById('heroBookingBtn')?.addEventListener('click', function() {
+      const date   = document.getElementById('bookingDate').value;
+      const time   = document.getElementById('bookingTime').value;
+      const guests = document.getElementById('bookingGuests').value;
+      const success = document.getElementById('heroBookingSuccess');
+      const error   = document.getElementById('heroBookingError');
+      success?.classList.add('hidden');
+      error?.classList.add('hidden');
+      if (!date || !time || !guests) { error?.classList.remove('hidden'); return; }
+      success?.classList.remove('hidden');
     });
   </script>
 </body>

@@ -8,260 +8,258 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL,GRAD,opsz@0,400,0,1,24&display=swap" rel="stylesheet" />
-
-  <style>
-    :root {
-      --bg:#0a0a0a;--surface:#131313;--surface-low:#1c1b1b;--surface-mid:#20201f;
-      --surface-high:#2a2a2a;--surface-hi2:#353534;--surface-hi3:#3a3939;
-      --gold:#f0b429;--gold-dark:#d4af37;--text:#ffffff;--text-muted:#d0c5af;--text-dim:#a0a090;
-      --outline:rgba(240,180,41,0.25);--border-ghost:rgba(77,70,53,0.15);
-    }
-    *{box-sizing:border-box;margin:0;padding:0;}html{scroll-behavior:smooth;}
-    body{background:var(--bg);color:var(--text);font-family:'Manrope',sans-serif;letter-spacing:-0.01em;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
-    .serif{font-family:'Noto Serif',serif;}.gold{color:var(--gold);}
-    .gold-serif{font-family:'Noto Serif',serif;color:var(--gold);font-style:italic;}
-    .btn-gold{background:linear-gradient(135deg,var(--gold) 0%,var(--gold-dark) 100%);color:#0a0a0a;font-weight:700;font-family:'Manrope',sans-serif;text-transform:uppercase;letter-spacing:0.06em;border:none;cursor:pointer;transition:all 0.2s ease;display:inline-flex;align-items:center;justify-content:center;}
-    .btn-gold:hover{transform:scale(1.04);box-shadow:0 8px 32px rgba(240,180,41,0.25);}
-    .btn-ghost{background:transparent;border:1px solid var(--outline);color:var(--text);font-weight:700;font-family:'Manrope',sans-serif;text-transform:uppercase;letter-spacing:0.06em;cursor:pointer;transition:all 0.2s ease;display:inline-flex;align-items:center;justify-content:center;}
-    .btn-ghost:hover{background:rgba(240,180,41,0.08);border-color:var(--gold);}
-    .nav-glass{background:rgba(19,19,19,0.82);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border-ghost);}
-    .mobile-menu{transform:translateX(100%);transition:transform 0.35s cubic-bezier(0.4,0,0.2,1);}
-    .mobile-menu.open{transform:translateX(0);}
-    ::-webkit-scrollbar{width:5px;}::-webkit-scrollbar-track{background:var(--bg);}::-webkit-scrollbar-thumb{background:var(--gold);border-radius:3px;}
-    .section-label{font-family:'Manrope',sans-serif;font-weight:700;font-size:0.6rem;text-transform:uppercase;letter-spacing:0.25em;color:var(--gold);}
-    .fade-up{opacity:0;transform:translateY(30px);transition:opacity 0.7s ease,transform 0.7s ease;}
-    .fade-up.visible{opacity:1;transform:translateY(0);}
-    .mi{font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24;}
-    .menu-item{padding:1.75rem 0;border-bottom:1px solid rgba(77,70,53,0.1);}
-    .menu-item:last-child{border-bottom:none;}
-    .price{color:var(--gold);font-weight:700;font-size:1rem;}
-    .menu-section-title{font-family:'Noto Serif',serif;font-size:1.5rem;font-weight:700;font-style:italic;color:var(--text);margin-bottom:0.5rem;}
-  </style>
+  <link rel="stylesheet" href="css/style.css" />
 </head>
-<body>
+<body class="antialiased overflow-x-hidden">
 
-  <nav class="nav-glass fixed top-0 left-0 right-0 z-50">
-    <div class="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between h-16 md:h-20">
-      <a href="index.html" class="serif text-2xl font-bold italic gold tracking-tight">MuuuTeca</a>
-      <div class="hidden lg:flex items-center gap-8">
-        <a href="index.html"           class="text-sm font-medium text-[var(--text-dim)] hover:text-white transition-colors">Home</a>
-        <a href="chi-siamo.html"      class="text-sm font-medium text-[var(--text-dim)] hover:text-white transition-colors">Chi Siamo</a>
-        <a href="menu.html"            class="text-sm font-medium text-white border-b-2 border-[var(--gold)] pb-0.5">Menu</a>
-        <a href="carta-dei-vini.html" class="text-sm font-medium text-[var(--text-dim)] hover:text-white transition-colors">Carta dei Vini</a>
-        <a href="prenotazioni.html"   class="text-sm font-medium text-[var(--text-dim)] hover:text-white transition-colors">Prenotazioni</a>
-      </div>
-      <a href="prenotazioni.html" class="hidden lg:inline-flex btn-gold px-6 py-2.5 text-xs rounded-sm">Prenota un Tavolo</a>
-      <button id="menuBtn" class="lg:hidden text-[var(--text-muted)] hover:text-white p-1" aria-label="Menu"><span class="mi text-3xl">menu</span></button>
+  <!-- ══ FLOATING PILL NAV ══ -->
+  <nav id="navbar" class="nav-pill">
+    <a href="index.html" class="italic font-bold text-2xl text-gold tracking-tight">MuuuTeca</a>
+    <div class="hidden md:flex items-center gap-8">
+      <a href="index.html"            class="text-zinc-400 hover:text-white transition-colors italic">Home</a>
+      <a href="chi-siamo.html"       class="text-zinc-400 hover:text-white transition-colors italic">Chi Siamo</a>
+      <a href="menu.html"            class="text-gold font-bold border-b-2 border-[var(--gold)] pb-0.5 italic">Menu</a>
+      <a href="carta-dei-vini.html"  class="text-zinc-400 hover:text-white transition-colors italic">Carta dei Vini</a>
+      <a href="prenotazioni.html"     class="text-zinc-400 hover:text-white transition-colors italic">Prenotazioni</a>
     </div>
+    <a href="prenotazioni.html" class="btn-gold px-6 py-2 italic text-sm hidden md:inline-flex">Prenota un Tavolo</a>
+    <button id="menuBtn" class="md:hidden text-zinc-400 hover:text-white p-1" aria-label="Menu">
+      <span class="material-symbols-outlined text-3xl">menu</span>
+    </button>
   </nav>
 
+  <!-- ══ MOBILE DRAWER ══ -->
   <div id="mobileMenu" class="mobile-menu fixed inset-0 z-[60] flex">
     <div id="mobileBackdrop" class="absolute inset-0 bg-black/70 backdrop-blur-sm"></div>
-    <div class="relative ml-auto w-80 h-full bg-[var(--surface-low)] flex flex-col p-8 shadow-2xl">
-      <button id="closeMenuBtn" class="self-end text-[var(--text-dim)] hover:text-white mb-10" aria-label="Close"><span class="mi text-3xl">close</span></button>
+    <div class="relative ml-auto w-80 h-full bg-[var(--surface-low)] flex flex-col p-8 shadow-2xl rounded-l-2xl">
+      <button id="closeMenuBtn" class="self-end text-zinc-400 hover:text-white mb-10" aria-label="Close">
+        <span class="material-symbols-outlined text-3xl">close</span>
+      </button>
       <nav class="flex flex-col gap-6">
-        <a href="index.html"           class="text-[var(--text-muted)] hover:text-[var(--gold)] transition-colors serif text-lg italic">Home</a>
-        <a href="chi-siamo.html"      class="text-[var(--text-muted)] hover:text-[var(--gold)] transition-colors serif text-lg italic">Chi Siamo</a>
-        <a href="menu.html"            class="text-white font-semibold serif text-lg italic">Menu</a>
-        <a href="carta-dei-vini.html" class="text-[var(--text-muted)] hover:text-[var(--gold)] transition-colors serif text-lg italic">Carta dei Vini</a>
-        <a href="prenotazioni.html"   class="text-[var(--text-muted)] hover:text-[var(--gold)] transition-colors serif text-lg italic">Prenotazioni</a>
+        <a href="index.html"           class="text-zinc-400 hover:text-gold transition-colors italic text-lg">Home</a>
+        <a href="chi-siamo.html"      class="text-zinc-400 hover:text-gold transition-colors italic text-lg">Chi Siamo</a>
+        <a href="menu.html"            class="text-white font-semibold italic text-lg">Menu</a>
+        <a href="carta-dei-vini.html" class="text-zinc-400 hover:text-gold transition-colors italic text-lg">Carta dei Vini</a>
+        <a href="prenotazioni.html"    class="text-zinc-400 hover:text-gold transition-colors italic text-lg">Prenotazioni</a>
       </nav>
-      <div class="mt-auto"><a href="prenotazioni.html" class="btn-gold block text-center px-6 py-3 text-xs rounded-sm" onclick="closeMenu()">Prenota un Tavolo</a></div>
+      <div class="mt-auto"><a href="prenotazioni.html" class="btn-gold block text-center px-6 py-3 italic text-sm">Prenota un Tavolo</a></div>
     </div>
   </div>
 
-  <!-- Page Hero -->
-  <section class="pt-32 pb-20 px-6 relative overflow-hidden">
+  <!-- ══ HERO ══ -->
+  <section class="relative page-hero overflow-hidden" style="padding-top: 8rem;">
     <div class="absolute inset-0 z-0">
-      <img src="https://images.unsplash.com/photo-1432139555190-58524dae6a55?w=1920&q=80" alt="MuuuTeca Menu" class="w-full h-full object-cover opacity-20" loading="eager"/>
-      <div class="absolute inset-0 bg-gradient-to-b from-[#0a0a0a] via-[#0a0a0a]/80 to-[#0a0a0a]"></div>
+      <img src="https://images.unsplash.com/photo-1432139555190-58524dae6a55?w=1920&q=80" alt="Il menu MuuuTeca" class="w-full h-full object-cover opacity-25" loading="eager" />
+      <div class="absolute inset-0 bg-gradient-to-b from-[var(--bg)] via-[var(--bg)]/80 to-[var(--bg)]"></div>
     </div>
-    <div class="relative z-10 text-center max-w-4xl mx-auto">
-      <p class="section-label mb-5">Il Nostro Menu</p>
-      <h1 class="serif text-5xl md:text-7xl font-light italic text-white tracking-[-0.03em] leading-tight mb-6">
-        <em class="gold-serif font-bold">Carne</em> & <em class="gold-serif font-bold">Vino</em>
+    <div class="relative z-10 text-center px-6 max-w-4xl fade-up">
+      <p class="section-label mb-5 italic">Il Nostro Menu</p>
+      <h1 class="text-5xl md:text-7xl font-light italic text-white tracking-tight mb-6">
+        <span class="text-gold-gradient font-bold">Carne</span> & <span class="text-gold-gradient font-bold">Vino</span>
       </h1>
-      <p class="text-lg md:text-xl text-[var(--text-muted)] font-light italic max-w-2xl mx-auto leading-relaxed">
+      <p class="text-xl text-[var(--text-muted)] font-light italic max-w-2xl mx-auto leading-relaxed">
         Tagli selezionati, griglia viva, etichette scelte con cura.
       </p>
     </div>
   </section>
 
-  <main class="bg-[var(--bg)]">
+  <main>
 
-    <!-- Secondi -->
-    <section class="bg-[var(--surface-low)] py-20 md:py-28">
-      <div class="max-w-4xl mx-auto px-6 md:px-12">
+    <!-- ══ I SECONDI ══ -->
+    <section class="section-lg bg-[var(--bg)]">
+      <div class="container">
         <div class="mb-10 fade-up">
-          <div class="text-[var(--gold)] text-xl mb-2">🥩</div>
-          <h2 class="menu-section-title">I Secondi</h2>
-          <p class="text-[var(--text-dim)] text-sm font-light italic">La qualità che parliamo al palato.</p>
+          <span class="material-symbols-outlined text-gold text-3xl mb-3 block">lunch_dining</span>
+          <h2 class="text-3xl md:text-4xl font-bold italic text-white mb-1">I Secondi</h2>
+          <p class="text-[var(--text-dim)] italic text-sm">La qualità che parliamo al palato.</p>
         </div>
-
         <div class="space-y-0 fade-up">
-          <div class="menu-item flex justify-between items-start gap-6">
-            <div>
-              <h3 class="serif text-lg font-bold italic text-white mb-1">Fiorentina</h3>
+
+          <div class="menu-item flex justify-between items-start gap-6 py-7 border-b border-[var(--border-ghost)]">
+            <div class="flex-1">
+              <h3 class="text-lg font-bold italic text-white mb-1">Fiorentina</h3>
               <p class="text-[var(--text-dim)] font-light italic text-sm leading-relaxed">Bistecca alla fiorentina, 1.2 kg — taglio storico toscano, cotta sulla brace viva.</p>
             </div>
-            <span class="price shrink-0">€ 38</span>
+            <span class="text-gold font-bold text-base shrink-0">€ 38</span>
           </div>
-          <div class="menu-item flex justify-between items-start gap-6">
-            <div>
-              <h3 class="serif text-lg font-bold italic text-white mb-1">Tomahawk</h3>
+
+          <div class="menu-item flex justify-between items-start gap-6 py-7 border-b border-[var(--border-ghost)]">
+            <div class="flex-1">
+              <h3 class="text-lg font-bold italic text-white mb-1">Tomahawk</h3>
               <p class="text-[var(--text-dim)] font-light italic text-sm leading-relaxed">Osso lungo, taglio Tenera Chianina, marinatura alle erbe di Pavia.</p>
             </div>
-            <span class="price shrink-0">€ 45</span>
+            <span class="text-gold font-bold text-base shrink-0">€ 45</span>
           </div>
-          <div class="menu-item flex justify-between items-start gap-6">
-            <div>
-              <h3 class="serif text-lg font-bold italic text-white mb-1">Ribeye</h3>
+
+          <div class="menu-item flex justify-between items-start gap-6 py-7 border-b border-[var(--border-ghost)]">
+            <div class="flex-1">
+              <h3 class="text-lg font-bold italic text-white mb-1">Ribeye</h3>
               <p class="text-[var(--text-dim)] font-light italic text-sm leading-relaxed">Spezzatino di manzo, rosolato in padella e finito alla brace con burro al rosmarino.</p>
             </div>
-            <span class="price shrink-0">€ 42</span>
+            <span class="text-gold font-bold text-base shrink-0">€ 42</span>
           </div>
-          <div class="menu-item flex justify-between items-start gap-6">
-            <div>
-              <h3 class="serif text-lg font-bold italic text-white mb-1">Picanha</h3>
+
+          <div class="menu-item flex justify-between items-start gap-6 py-7 border-b border-[var(--border-ghost)]">
+            <div class="flex-1">
+              <h3 class="text-lg font-bold italic text-white mb-1">Picanha</h3>
               <p class="text-[var(--text-dim)] font-light italic text-sm leading-relaxed">Il taglio brasiliano preferito — grigliato e servito al sangue.</p>
             </div>
-            <span class="price shrink-0">€ 35</span>
+            <span class="text-gold font-bold text-base shrink-0">€ 35</span>
           </div>
-          <div class="menu-item flex justify-between items-start gap-6">
-            <div>
-              <h3 class="serif text-lg font-bold italic text-white mb-1">Costata</h3>
+
+          <div class="menu-item flex justify-between items-start gap-6 py-7 border-b border-[var(--border-ghost)]">
+            <div class="flex-1">
+              <h3 class="text-lg font-bold italic text-white mb-1">Costata</h3>
               <p class="text-[var(--text-dim)] font-light italic text-sm leading-relaxed">Costata di Fassona, dry-aged 30 giorni, sale Maldon, olio evo a crudo.</p>
             </div>
-            <span class="price shrink-0">€ 32</span>
+            <span class="text-gold font-bold text-base shrink-0">€ 32</span>
           </div>
+
+          <div class="menu-item flex justify-between items-start gap-6 py-7 border-b border-[var(--border-ghost)]">
+            <div class="flex-1">
+              <h3 class="text-lg font-bold italic text-white mb-1">Tagliata di Manzo</h3>
+              <p class="text-[var(--text-dim)] font-light italic text-sm leading-relaxed">Fette sottili di controfiletto, rucola, scaglie di parmigiano 36 mesi.</p>
+            </div>
+            <span class="text-gold font-bold text-base shrink-0">€ 28</span>
+          </div>
+
+          <div class="menu-item flex justify-between items-start gap-6 py-7">
+            <div class="flex-1">
+              <h3 class="text-lg font-bold italic text-white mb-1">Wagyu A5 (100g)</h3>
+              <p class="text-[var(--text-dim)] font-light italic text-sm leading-relaxed">La massima espressione del manzo giapponese. Su prenotazione.</p>
+            </div>
+            <span class="text-gold font-bold text-base shrink-0">€ 75</span>
+          </div>
+
         </div>
       </div>
     </section>
 
-    <!-- Antipasti -->
-    <section class="bg-[var(--surface)] py-20 md:py-28">
-      <div class="max-w-4xl mx-auto px-6 md:px-12">
+    <!-- ══ ANTIPASTI ══ -->
+    <section class="section-lg bg-[var(--surface-low)]">
+      <div class="container">
         <div class="mb-10 fade-up">
-          <div class="text-[var(--gold)] text-xl mb-2">🫒</div>
-          <h2 class="menu-section-title">Antipasti</h2>
+          <span class="material-symbols-outlined text-gold text-3xl mb-3 block">tapas</span>
+          <h2 class="text-3xl md:text-4xl font-bold italic text-white mb-1">Antipasti</h2>
         </div>
         <div class="space-y-0 fade-up">
-          <div class="menu-item flex justify-between items-start gap-6">
-            <div>
-              <h3 class="serif text-lg font-bold italic text-white mb-1">Carpaccio di Fassona</h3>
+
+          <div class="menu-item flex justify-between items-start gap-6 py-7 border-b border-[var(--border-ghost)]">
+            <div class="flex-1">
+              <h3 class="text-lg font-bold italic text-white mb-1">Carpaccio di Fassona</h3>
               <p class="text-[var(--text-dim)] font-light italic text-sm">Rucola, parmigiano 36 mesi, tartufo nero (stagionale).</p>
             </div>
-            <span class="price shrink-0">€ 18</span>
+            <span class="text-gold font-bold text-base shrink-0">€ 18</span>
           </div>
-          <div class="menu-item flex justify-between items-start gap-6">
-            <div>
-              <h3 class="serif text-lg font-bold italic text-white mb-1">Burrata & Crudo</h3>
+
+          <div class="menu-item flex justify-between items-start gap-6 py-7 border-b border-[var(--border-ghost)]">
+            <div class="flex-1">
+              <h3 class="text-lg font-bold italic text-white mb-1">Burrata & Crudo</h3>
               <p class="text-[var(--text-dim)] font-light italic text-sm">Burrata pugliese, pomodorini datterini, basilico fresco.</p>
             </div>
-            <span class="price shrink-0">€ 16</span>
+            <span class="text-gold font-bold text-base shrink-0">€ 16</span>
           </div>
-          <div class="menu-item flex justify-between items-start gap-6">
-            <div>
-              <h3 class="serif text-lg font-bold italic text-white mb-1">Tagliere di Salumi</h3>
+
+          <div class="menu-item flex justify-between items-start gap-6 py-7 border-b border-[var(--border-ghost)]">
+            <div class="flex-1">
+              <h3 class="text-lg font-bold italic text-white mb-1">Tagliere di Salumi</h3>
               <p class="text-[var(--text-dim)] font-light italic text-sm">Selezione di salumi italiani, miele di acacia, mostarda di Cremona.</p>
             </div>
-            <span class="price shrink-0">€ 22</span>
+            <span class="text-gold font-bold text-base shrink-0">€ 22</span>
           </div>
+
+          <div class="menu-item flex justify-between items-start gap-6 py-7">
+            <div class="flex-1">
+              <h3 class="text-lg font-bold italic text-white mb-1">Battuta di Fassona</h3>
+              <p class="text-[var(--text-dim)] font-light italic text-sm">Carpaccio battuto a coltello, capperi, acciughe, tuorlo marinato.</p>
+            </div>
+            <span class="text-gold font-bold text-base shrink-0">€ 20</span>
+          </div>
+
         </div>
       </div>
     </section>
 
-    <!-- Contorni -->
-    <section class="bg-[var(--surface-low)] py-20 md:py-28">
-      <div class="max-w-4xl mx-auto px-6 md:px-12">
+    <!-- ══ CONTORNI ══ -->
+    <section class="section-lg bg-[var(--bg)]">
+      <div class="container">
         <div class="mb-10 fade-up">
-          <div class="text-[var(--gold)] text-xl mb-2">🥦</div>
-          <h2 class="menu-section-title">Contorni</h2>
+          <span class="material-symbols-outlined text-gold text-3xl mb-3 block">eco</span>
+          <h2 class="text-3xl md:text-4xl font-bold italic text-white mb-1">Contorni</h2>
         </div>
-        <div class="space-y-0 fade-up">
-          <div class="menu-item flex justify-between items-start gap-6">
-            <div>
-              <h3 class="serif text-lg font-bold italic text-white mb-1">Patate al Forno</h3>
-              <p class="text-[var(--text-dim)] font-light italic text-sm">Rosse, croccanti fuori, morbide dentro — rosmarino e aglio.</p>
-            </div>
-            <span class="price shrink-0">€ 7</span>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 fade-up">
+
+          <div class="card-border p-8">
+            <h3 class="text-lg font-bold italic text-white mb-2">Patate al Forno</h3>
+            <p class="text-[var(--text-dim)] font-light italic text-sm">Rosse, croccanti fuori, morbide dentro — rosmarino e aglio.</p>
+            <span class="text-gold font-bold text-base mt-4 block">€ 7</span>
           </div>
-          <div class="menu-item flex justify-between items-start gap-6">
-            <div>
-              <h3 class="serif text-lg font-bold italic text-white mb-1">Verdure alla Griglia</h3>
-              <p class="text-[var(--text-dim)] font-light italic text-sm">Zucchine, melanzane, peperoni — olio evo e sale Maldon.</p>
-            </div>
-            <span class="price shrink-0">€ 8</span>
+
+          <div class="card-border p-8">
+            <h3 class="text-lg font-bold italic text-white mb-2">Verdure alla Griglia</h3>
+            <p class="text-[var(--text-dim)] font-light italic text-sm">Zucchine, melanzane, peperoni — olio evo e sale Maldon.</p>
+            <span class="text-gold font-bold text-base mt-4 block">€ 8</span>
           </div>
-          <div class="menu-item flex justify-between items-start gap-6">
-            <div>
-              <h3 class="serif text-lg font-bold italic text-white mb-1">Insalata Mista</h3>
-              <p class="text-[var(--text-dim)] font-light italic text-sm">Misticanza, pomodorini, carciofi — vinaigrette leggera.</p>
-            </div>
-            <span class="price shrink-0">€ 6</span>
+
+          <div class="card-border p-8">
+            <h3 class="text-lg font-bold italic text-white mb-2">Insalata Mista</h3>
+            <p class="text-[var(--text-dim)] font-light italic text-sm">Misticanza, pomodorini, carciofi — vinaigrette leggera.</p>
+            <span class="text-gold font-bold text-base mt-4 block">€ 6</span>
           </div>
+
         </div>
       </div>
     </section>
 
-    <!-- Degustazioni -->
-    <section class="bg-[var(--surface)] py-20 md:py-28 text-center fade-up">
-      <div class="max-w-3xl mx-auto px-6">
-        <div class="text-[var(--gold)] text-4xl mb-6">📅</div>
-        <h2 class="serif text-4xl md:text-5xl font-light text-white mb-6">
-          Degustazioni & <em class="gold-serif font-bold">Eventi</em>
+    <!-- ══ DEGUSTAZIONI ══ -->
+    <section class="section-lg bg-[var(--surface-low)] text-center fade-up">
+      <div class="container-narrow">
+        <span class="material-symbols-outlined text-5xl text-gold mb-6 block">calendar_month</span>
+        <h2 class="text-4xl md:text-5xl font-light italic text-white mb-6">
+          Degustazioni & <span class="text-gold font-bold">Eventi</span>
         </h2>
-        <p class="text-[var(--text-muted)] font-light italic text-lg leading-relaxed mb-8">
+        <p class="text-xl text-[var(--text-muted)] font-light italic leading-relaxed mb-8">
           Organizziamo regolarmente degustazioni di carne e vino, cene a tema e serate private. Contattaci per scoprire i prossimi eventi o per organizzare una serata su misura.
         </p>
-        <a href="tel:3392734159" class="inline-flex items-center gap-2 text-[var(--gold)] font-bold text-sm border-b border-[var(--gold)]/40 pb-0.5 hover:border-[var(--gold)] transition-all">
+        <a href="tel:3392734159" class="inline-flex items-center gap-2 text-gold font-bold italic border-b border-[var(--gold)]/40 pb-0.5 hover:border-[var(--gold)] transition-all">
           Contattaci per gli eventi →
         </a>
-        <p class="mt-8 text-[var(--text-dim)] text-sm font-light">Tel. <a href="tel:3392734159" class="text-[var(--gold)] hover:underline">329.27.34.159</a> &nbsp;|&nbsp; Via Festa Giovanni 85, Pavia</p>
+        <p class="mt-8 text-[var(--text-dim)] italic text-sm">Tel. <a href="tel:3392734159" class="text-gold hover:underline">339 27 34 159</a> &nbsp;|&nbsp; Via Festa Giovanni 85, Pavia</p>
       </div>
     </section>
 
-    <!-- CTA -->
-    <section class="bg-[var(--surface-low)] py-20 md:py-28 text-center fade-up">
-      <div class="max-w-3xl mx-auto px-6">
-        <h2 class="serif text-4xl font-light text-white mb-6">
-          Pronto a <em class="gold-serif font-bold">ordinare</em>?
+    <!-- ══ CTA ══ -->
+    <section class="section-lg bg-[var(--bg)] text-center fade-up">
+      <div class="container-narrow">
+        <h2 class="text-4xl md:text-5xl font-light italic text-white mb-6">
+          Pronto a <span class="text-gold font-bold">ordinare</span>?
         </h2>
-        <p class="text-[var(--text-muted)] font-light italic text-lg mb-10">Prenota il tuo tavolo e ti accogliamo come si deve.</p>
-        <a href="prenotazioni.html" class="btn-gold px-12 py-4 text-sm rounded-sm">Prenota Ora</a>
+        <p class="text-xl text-[var(--text-muted)] font-light italic mb-12">Prenota il tuo tavolo e ti accogliamo come si deve.</p>
+        <a href="prenotazioni.html" class="btn-gold px-12 py-4 italic text-lg">Prenota Ora</a>
       </div>
     </section>
 
   </main>
 
-  <footer class="bg-[var(--bg)] border-t border-[var(--border-ghost)] py-12">
-    <div class="max-w-7xl mx-auto px-6 md:px-12">
-      <div class="flex flex-col md:flex-row justify-between items-center gap-8">
-        <div class="text-center md:text-left">
-          <div class="serif text-xl font-bold italic gold mb-1">MuuuTeca</div>
-          <p class="text-[var(--text-dim)] text-xs font-light italic">L'essenza della carne, lo spirito del vino, a Pavia.</p>
-        </div>
-        <nav class="flex flex-wrap justify-center gap-6 md:gap-8">
-          <a href="chi-siamo.html"      class="text-[var(--text-dim)] hover:text-[var(--gold)] transition-colors font-medium text-xs uppercase tracking-wider">Chi Siamo</a>
-          <a href="menu.html"            class="text-[var(--text-dim)] hover:text-[var(--gold)] transition-colors font-medium text-xs uppercase tracking-wider">Menu</a>
-          <a href="carta-dei-vini.html" class="text-[var(--text-dim)] hover:text-[var(--gold)] transition-colors font-medium text-xs uppercase tracking-wider">Carta dei Vini</a>
-          <a href="prenotazioni.html"   class="text-[var(--text-dim)] hover:text-[var(--gold)] transition-colors font-medium text-xs uppercase tracking-wider">Prenotazioni</a>
-        </nav>
-        <div class="text-[var(--text-dim)] font-medium text-xs">© 2024 MuuuTeca. Tutti i diritti riservati.</div>
+  <!-- ══ FOOTER ══ -->
+  <footer class="bg-[var(--bg)] rounded-t-[24px] mt-20 border-t border-[var(--border-ghost)]">
+    <div class="flex flex-col md:flex-row justify-between items-center px-8 md:px-16 py-10 max-w-screen-2xl mx-auto gap-8">
+      <div>
+        <div class="italic font-bold text-lg text-gold mb-2">MuuuTeca</div>
+        <p class="text-[var(--text-dim)] text-sm italic">L'essenza della carne, lo spirito del vino, a Pavia.</p>
       </div>
+      <nav class="flex flex-wrap justify-center gap-6 md:gap-8">
+        <a href="index.html"           class="text-[var(--text-dim)] hover:text-gold transition-colors font-medium italic text-sm">Home</a>
+        <a href="chi-siamo.html"       class="text-[var(--text-dim)] hover:text-gold transition-colors font-medium italic text-sm">Chi Siamo</a>
+        <a href="carta-dei-vini.html"  class="text-[var(--text-dim)] hover:text-gold transition-colors font-medium italic text-sm">Carta dei Vini</a>
+        <a href="prenotazioni.html"     class="text-[var(--text-dim)] hover:text-gold transition-colors font-medium italic text-sm">Prenotazioni</a>
+      </nav>
+      <div class="text-[var(--text-dim)] italic text-sm">© 2024 MuuuTeca. Tutti i diritti riservati.</div>
     </div>
   </footer>
 
-  <script>
-    const menuBtn=document.getElementById('menuBtn'),closeBtn=document.getElementById('closeMenuBtn'),mobileMenu=document.getElementById('mobileMenu'),backdrop=document.getElementById('mobileBackdrop');
-    function openMenu(){mobileMenu.classList.add('open');document.body.style.overflow='hidden';}function closeMenu(){mobileMenu.classList.remove('open');document.body.style.overflow='';}
-    menuBtn.addEventListener('click',openMenu);closeBtn.addEventListener('click',closeMenu);backdrop.addEventListener('click',closeMenu);
-    mobileMenu.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',closeMenu));
-    const fadeEls=document.querySelectorAll('.fade-up');
-    const observer=new IntersectionObserver(e=>{e.forEach(ev=>{if(ev.isIntersecting){ev.target.classList.add('visible');observer.unobserve(ev.target);}});},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
-    fadeEls.forEach(el=>{el.style.opacity='0';el.style.transform='translateY(30px)';observer.observe(el);});
-  </script>
+  <script src="js/main.js"></script>
 </body>
 </html>
