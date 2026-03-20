@@ -4,9 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Prenotazioni — MuuuTeca</title>
-  <meta name="description" content="Prenota il tuo tavolo da MuuuTeca — ristorante steakhouse a Pavia. Griglia accesa, calici pieni, accoglienza sincera." />
+  <meta name="description" content="Prenota il tuo tavolo da MuuuTeca — ristorante steakhouse a Pavia. Griglia accesa, calici pieni." />
   <link rel="stylesheet" href="css/style.css" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&display=swap" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 </head>
 <body>
 
@@ -14,12 +15,13 @@
     <a href="index.html" class="nav-logo">MuuuTeca</a>
     <div class="nav-links">
       <a href="index.html"           class="nav-link">Home</a>
-      <a href="chi-siamo.html"      class="nav-link">Chi Siamo</a>
-      <a href="menu.html"            class="nav-link">Menu</a>
-      <a href="carta-dei-vini.html" class="nav-link">Carta dei Vini</a>
+      <a href="chi-siamo.html"      class="nav-link">Chi siamo</a>
+      <a href="menu.html"            class="nav-link">Menù</a>
+      <a href="carta-dei-vini.html" class="nav-link">Carta dei vini</a>
       <a href="prenotazioni.html"    class="nav-link active">Prenotazioni</a>
+      <a href="eventi.html"          class="nav-link">Eventi</a>
     </div>
-    <a href="prenotazioni.html" class="btn-cta-white nav-cta-desktop">Book a Table</a>
+    <a href="prenotazioni.html" class="btn-cta-white nav-cta-desktop">Prenotazioni</a>
     <button id="menuBtn" class="nav-hamburger" aria-label="Menu">
       <span class="material-symbols-outlined" style="font-size:1.75rem">menu</span>
     </button>
@@ -33,13 +35,14 @@
       </button>
       <nav class="mobile-nav">
         <a href="index.html"           class="mobile-nav-link">Home</a>
-        <a href="chi-siamo.html"      class="mobile-nav-link">Chi Siamo</a>
-        <a href="menu.html"            class="mobile-nav-link">Menu</a>
-        <a href="carta-dei-vini.html" class="mobile-nav-link">Carta dei Vini</a>
+        <a href="chi-siamo.html"      class="mobile-nav-link">Chi siamo</a>
+        <a href="menu.html"            class="mobile-nav-link">Menù</a>
+        <a href="carta-dei-vini.html" class="mobile-nav-link">Carta dei vini</a>
         <a href="prenotazioni.html"    class="mobile-nav-link active">Prenotazioni</a>
+        <a href="eventi.html"          class="mobile-nav-link">Eventi</a>
       </nav>
       <div class="mobile-nav-cta">
-        <a href="prenotazioni.html" class="btn-cta-white" style="width:100%;justify-content:center;">Book a Table</a>
+        <a href="prenotazioni.html" class="btn-cta-white" style="width:100%;justify-content:center;">Prenotazioni</a>
       </div>
     </div>
   </div>
@@ -52,7 +55,7 @@
     <div class="page-hero-content">
       <p class="page-hero-eyebrow">Prenota</p>
       <h1 class="page-hero-headline">Prenota il tuo <em>Tavolo</em></h1>
-      <p class="page-hero-sub">Cerchi dove mangiare carne a <strong>Pavia</strong>? MuuuTeca ti aspetta con <strong>griglia accesa</strong> e calici pieni.</p>
+      <p class="page-hero-sub">Cerchi dove mangiare carne a <strong>Pavia</strong>? Ti aspettiamo con <strong>griglia accesa</strong> e calici pieni.</p>
     </div>
   </section>
 
@@ -64,7 +67,7 @@
 
         <form id="bookingForm" class="fade-up" novalidate>
 
-          <!-- Row 1: Date + Time + Guests -->
+          <!-- Row 1 -->
           <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-bottom:2.5rem;">
             <div>
               <label class="field-label" for="bookingDate">Data</label>
@@ -94,7 +97,7 @@
             </div>
           </div>
 
-          <!-- Row 2: Name + Phone -->
+          <!-- Row 2 -->
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-bottom:2.5rem;">
             <div>
               <label class="field-label" for="bookingName">Nome</label>
@@ -112,21 +115,18 @@
             <input id="bookingNotes" type="text" class="field-underline" placeholder="Allergie, occasioni speciali, preferenze di posto…" />
           </div>
 
-          <!-- Submit -->
           <button type="submit" id="bookingSubmit" class="btn-primary" style="width:100%;justify-content:center;padding:16px;">
             Verifica Disponibilità
           </button>
 
-          <!-- Success -->
-          <div id="bookingSuccess" class="hidden" style="margin-top:1.25rem;padding:1rem 1.5rem;background:rgba(201,165,74,0.1);border:1px solid rgba(201,165,74,0.3);border-radius:16px;text-align:center;">
-            <span style="font-family:var(--font-serif);font-style:italic;font-size:0.9rem;color:var(--gold);">
-              ✓ Prenotazione inviata con successo! Ti contatteremo a breve per confermare il tuo tavolo.
+          <div id="bookingSuccess" class="hidden" style="margin-top:1.25rem;padding:1rem 1.5rem;background:rgba(201,165,74,0.10);border:1px solid rgba(201,165,74,0.30);border-radius:16px;text-align:center;">
+            <span style="font-family:var(--font-display);font-style:italic;font-size:0.9rem;color:var(--gold);">
+              ✓ Prenotazione inviata! Ti contatteremo a breve per confermare il tuo tavolo.
             </span>
           </div>
 
-          <!-- Error -->
-          <div id="bookingError" class="hidden" style="margin-top:1.25rem;padding:1rem 1.5rem;background:rgba(255,180,171,0.1);border:1px solid rgba(255,180,171,0.3);border-radius:16px;text-align:center;">
-            <span style="font-family:var(--font-serif);font-style:italic;font-size:0.9rem;color:#ffb4ab;">
+          <div id="bookingError" class="hidden" style="margin-top:1.25rem;padding:1rem 1.5rem;background:rgba(255,180,171,0.10);border:1px solid rgba(255,180,171,0.30);border-radius:16px;text-align:center;">
+            <span style="font-family:var(--font-display);font-style:italic;font-size:0.9rem;color:#ffb4ab;">
               ⚠ Per favore compila i campi obbligatori: data, orario e numero di ospiti.
             </span>
           </div>
@@ -141,7 +141,6 @@
       <div class="container">
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.5rem;" class="fade-up">
 
-          <!-- Orari -->
           <div class="info-card">
             <span class="material-symbols-outlined info-card-icon">schedule</span>
             <h3 class="info-card-title">Orari</h3>
@@ -150,22 +149,20 @@
             <div style="height:1px;background:rgba(255,255,255,0.06);margin:0.75rem 0;"></div>
             <p class="info-card-line">19:00 — 23:00</p>
             <p class="info-card-sub">Cena</p>
-            <p style="font-family:var(--font-serif);font-style:italic;font-size:0.75rem;color:var(--text-dim);margin-top:0.75rem;">Aperti tutti i giorni</p>
+            <p style="font-family:var(--font-display);font-style:italic;font-size:0.75rem;color:var(--text-dim);margin-top:0.75rem;">Aperti tutti i giorni</p>
           </div>
 
-          <!-- Dove Trovarci -->
           <div class="info-card">
             <span class="material-symbols-outlined info-card-icon">location_on</span>
             <h3 class="info-card-title">Dove Trovarci</h3>
             <p class="info-card-line">Via Festa Giovanni 85</p>
             <p class="info-card-sub" style="margin-bottom:0.75rem;">Pavia, Lombardia</p>
             <div style="height:1px;background:rgba(255,255,255,0.06);margin:0.75rem 0;"></div>
-            <p style="font-family:var(--font-serif);font-style:italic;font-size:0.8rem;color:var(--text-dim);line-height:1.6;">
-              A due passi dal centro storico,<br/>vicino ai parcheggi di zona.
+            <p style="font-family:var(--font-display);font-style:italic;font-size:0.8rem;color:var(--text-dim);line-height:1.6;">
+              A due passi dal centro storico, vicino ai parcheggi di zona.
             </p>
           </div>
 
-          <!-- Contatti -->
           <div class="info-card">
             <span class="material-symbols-outlined info-card-icon">phone</span>
             <h3 class="info-card-title">Contatti</h3>
@@ -191,11 +188,12 @@
       </div>
       <nav class="footer-links">
         <a href="index.html"           class="footer-link">Home</a>
-        <a href="chi-siamo.html"      class="footer-link">Chi Siamo</a>
-        <a href="menu.html"            class="footer-link">Menu</a>
-        <a href="carta-dei-vini.html"  class="footer-link">Carta dei Vini</a>
+        <a href="chi-siamo.html"      class="footer-link">Chi siamo</a>
+        <a href="menu.html"            class="footer-link">Menù</a>
+        <a href="carta-dei-vini.html" class="footer-link">Carta dei vini</a>
+        <a href="eventi.html"         class="footer-link">Eventi</a>
       </nav>
-      <div class="footer-copy">© 2024 MuuuTeca. Tutti i diritti riservati.</div>
+      <div class="footer-copy">© 2025 MuuuTeca. Tutti i diritti riservati.</div>
     </div>
   </footer>
 

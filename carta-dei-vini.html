@@ -4,9 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Carta dei Vini — MuuuTeca</title>
-  <meta name="description" content="La carta dei vini di MuuuTeca — etichette d'annata, riserve storiche, degustazioni guidate. Il calice perfetto per ogni taglio." />
+  <meta name="description" content="La carta dei vini di MuuuTeca — etichette selezionate, rossi, bianchi e bollicine. Il calice perfetto per ogni taglio. Pavia." />
   <link rel="stylesheet" href="css/style.css" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&display=swap" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 </head>
 <body>
 
@@ -14,12 +15,13 @@
     <a href="index.html" class="nav-logo">MuuuTeca</a>
     <div class="nav-links">
       <a href="index.html"           class="nav-link">Home</a>
-      <a href="chi-siamo.html"      class="nav-link">Chi Siamo</a>
-      <a href="menu.html"            class="nav-link">Menu</a>
-      <a href="carta-dei-vini.html" class="nav-link active">Carta dei Vini</a>
+      <a href="chi-siamo.html"      class="nav-link">Chi siamo</a>
+      <a href="menu.html"            class="nav-link">Menù</a>
+      <a href="carta-dei-vini.html" class="nav-link active">Carta dei vini</a>
       <a href="prenotazioni.html"    class="nav-link">Prenotazioni</a>
+      <a href="eventi.html"          class="nav-link">Eventi</a>
     </div>
-    <a href="prenotazioni.html" class="btn-cta-white nav-cta-desktop">Book a Table</a>
+    <a href="prenotazioni.html" class="btn-cta-white nav-cta-desktop">Prenotazioni</a>
     <button id="menuBtn" class="nav-hamburger" aria-label="Menu">
       <span class="material-symbols-outlined" style="font-size:1.75rem">menu</span>
     </button>
@@ -33,13 +35,14 @@
       </button>
       <nav class="mobile-nav">
         <a href="index.html"           class="mobile-nav-link">Home</a>
-        <a href="chi-siamo.html"      class="mobile-nav-link">Chi Siamo</a>
-        <a href="menu.html"            class="mobile-nav-link">Menu</a>
-        <a href="carta-dei-vini.html" class="mobile-nav-link active">Carta dei Vini</a>
+        <a href="chi-siamo.html"      class="mobile-nav-link">Chi siamo</a>
+        <a href="menu.html"            class="mobile-nav-link">Menù</a>
+        <a href="carta-dei-vini.html" class="mobile-nav-link active">Carta dei vini</a>
         <a href="prenotazioni.html"    class="mobile-nav-link">Prenotazioni</a>
+        <a href="eventi.html"          class="mobile-nav-link">Eventi</a>
       </nav>
       <div class="mobile-nav-cta">
-        <a href="prenotazioni.html" class="btn-cta-white" style="width:100%;justify-content:center;">Book a Table</a>
+        <a href="prenotazioni.html" class="btn-cta-white" style="width:100%;justify-content:center;">Prenotazioni</a>
       </div>
     </div>
   </div>
@@ -51,29 +54,39 @@
     </div>
     <div class="page-hero-content">
       <p class="page-hero-eyebrow">La Nostra Carta</p>
-      <h1 class="page-hero-headline">La Carta dei <em>Vini</em></h1>
+      <h1 class="page-hero-headline">Carta dei <em>Vini</em></h1>
       <p class="page-hero-sub">Un archivio di sapori curato per chi cerca l'eccellenza nel calice.</p>
     </div>
   </section>
 
   <main>
 
+    <!-- Intro -->
+    <section class="section" style="background:var(--bg);text-align:center;">
+      <div class="container-narrow fade-up">
+        <span class="material-symbols-outlined" style="font-size:3rem;color:var(--gold);margin-bottom:1rem;display:block;">wine_bar</span>
+        <p style="font-family:var(--font-display);font-style:italic;font-size:1.1rem;color:var(--text-muted);line-height:1.8;max-width:600px;margin:0 auto;">
+          La carta dei vini è stata curata per esaltare ogni piatto. Etichette italiane e internazionali, piccole cantine e grandi nomi — per ogni occasione, c'è il calice giusto.
+        </p>
+      </div>
+    </section>
+
     <!-- Wine Categories -->
-    <section class="section" style="background:var(--bg);">
+    <section class="section" style="background:var(--surface);">
       <div class="container">
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;" class="fade-up">
           <div class="card">
-            <div class="img-zoom" style="height:260px;">
+            <div class="img-zoom" style="height:240px;">
               <img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=600&q=80" alt="Riserve Storiche" style="width:100%;height:100%;object-fit:cover;" loading="lazy" />
             </div>
             <div class="card-body">
               <h3 class="card-title">Riserve Storiche</h3>
-              <p class="card-text">Etichette d'annata selezionate dai vigneti più prestigiosi d'Italia e del mondo. Annate rare che raccontano storie di terroir straordinari.</p>
+              <p class="card-text">Etichette d'annata dai vigneti più prestigiosi d'Italia e del mondo. Annate rare che raccontano storie straordinarie.</p>
             </div>
           </div>
           <div class="card">
-            <div class="img-zoom" style="height:260px;">
-              <img src="https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?w=600&q=80" alt="Degustazioni Guidate" style="width:100%;height:100%;object-fit:cover;" loading="lazy" />
+            <div class="img-zoom" style="height:240px;">
+              <img src="https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?w=600&q=80" alt="Degustazioni" style="width:100%;height:100%;object-fit:cover;" loading="lazy" />
             </div>
             <div class="card-body">
               <h3 class="card-title">Degustazioni Guidate</h3>
@@ -81,8 +94,8 @@
             </div>
           </div>
           <div class="card">
-            <div class="img-zoom" style="height:260px;">
-              <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80" alt="Terroir e Territorio" style="width:100%;height:100%;object-fit:cover;" loading="lazy" />
+            <div class="img-zoom" style="height:240px;">
+              <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80" alt="Territorio" style="width:100%;height:100%;object-fit:cover;" loading="lazy" />
             </div>
             <div class="card-body">
               <h3 class="card-title">Terroir e Territorio</h3>
@@ -94,18 +107,18 @@
     </section>
 
     <!-- Rossi d'Italia -->
-    <section class="section" style="background:var(--surface);">
+    <section class="section" style="background:var(--bg);">
       <div class="container">
         <div class="fade-up" style="margin-bottom:2.5rem;">
           <span class="material-symbols-outlined" style="font-size:2rem;color:var(--gold);margin-bottom:0.75rem;display:block;">wine_bar</span>
-          <h2 style="font-family:var(--font-serif);font-style:italic;font-weight:700;font-size:1.75rem;color:#fff;margin-bottom:0.25rem;">Rossi d'Italia</h2>
-          <p style="font-family:var(--font-serif);font-style:italic;font-size:0.875rem;color:var(--text-dim);">I grandi classici, selezionati con cura.</p>
+          <h2 style="font-family:var(--font-display);font-style:italic;font-weight:700;font-size:1.75rem;color:#fff;margin-bottom:0.25rem;">Rossi d'Italia</h2>
+          <p style="font-family:var(--font-display);font-style:italic;font-size:0.875rem;color:var(--text-dim);">I grandi classici, selezionati con cura.</p>
         </div>
-        <div class="menu-list fade-up">
+        <div class="fade-up">
 
           <div class="menu-item">
             <div>
-              <p class="menu-item-meta" style="color:var(--text-dim);font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;font-weight:600;margin-bottom:4px;">Piemonte · 2018</p>
+              <p class="menu-item-meta">Piemonte · 2018</p>
               <h3 class="menu-item-name">Barolo DOCG</h3>
               <p class="menu-item-desc">Scala complessa di ciliegia, rosa appassita, grafite. tannini setosi, finale persistente. Affinato 36 mesi in botte grande.</p>
             </div>
@@ -114,7 +127,7 @@
 
           <div class="menu-item">
             <div>
-              <p class="menu-item-meta" style="color:var(--text-dim);font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;font-weight:600;margin-bottom:4px;">Toscana · 2018</p>
+              <p class="menu-item-meta">Toscana · 2018</p>
               <h3 class="menu-item-name">Brunello di Montalcino DOCG</h3>
               <p class="menu-item-desc">Rubino profondo, note di visciola, cuoio e tabacco dolce. Corpo pieno, elegante, tannini maturi.</p>
             </div>
@@ -123,16 +136,16 @@
 
           <div class="menu-item">
             <div>
-              <p class="menu-item-meta" style="color:var(--text-dim);font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;font-weight:600;margin-bottom:4px;">Toscana · 2019</p>
+              <p class="menu-item-meta">Toscana · 2019</p>
               <h3 class="menu-item-name">Sassicaia DOC Bolgheri</h3>
-              <p class="menu-item-desc">Cabernet Sauvignon in purezza. Naso di cassis, cedro e sottobosco. Struttura aristocratica, chiusura di grande classe.</p>
+              <p class="menu-item-desc">Cabernet Sauvignon in purezza. Naso di cassis, cedro e sottobosco. Struttura aristocratica.</p>
             </div>
             <span class="menu-item-price">€ 95</span>
           </div>
 
           <div class="menu-item">
             <div>
-              <p class="menu-item-meta" style="color:var(--text-dim);font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;font-weight:600;margin-bottom:4px;">Veneto · 2017</p>
+              <p class="menu-item-meta">Veneto · 2017</p>
               <h3 class="menu-item-name">Amarone della Valpolicella DOCG</h3>
               <p class="menu-item-desc">Uve appassite 120 giorni. Confettura di frutti rossi, cioccolato fondente, spezie orientali. Alcol 16%.</p>
             </div>
@@ -141,7 +154,7 @@
 
           <div class="menu-item">
             <div>
-              <p class="menu-item-meta" style="color:var(--text-dim);font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;font-weight:600;margin-bottom:4px;">Toscana · 2020</p>
+              <p class="menu-item-meta">Toscana · 2020</p>
               <h3 class="menu-item-name">Tignanello DOC</h3>
               <p class="menu-item-desc">Sangiovese e Cabernet. Terra, ciliegia nera, vaniglia dolce. Bocca avvolgente, tannini fini.</p>
             </div>
@@ -150,9 +163,9 @@
 
           <div class="menu-item">
             <div>
-              <p class="menu-item-meta" style="color:var(--text-dim);font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;font-weight:600;margin-bottom:4px;">Lombardia · 2019</p>
+              <p class="menu-item-meta">Lombardia · 2019</p>
               <h3 class="menu-item-name">Franciacorta Satin DOCG</h3>
-              <p class="menu-item-desc">Metodo classico rosso, Pinot Nero in purezza. Matura 48 mesi sui lieviti. Piccoli frutti rossi, pane tostato.</p>
+              <p class="menu-item-desc">Metodo classico rosso, Pinot Nero in purezza. 48 mesi sui lieviti. Piccoli frutti rossi, pane tostato.</p>
             </div>
             <span class="menu-item-price">€ 65</span>
           </div>
@@ -162,18 +175,18 @@
     </section>
 
     <!-- Selezioni del Territorio -->
-    <section class="section" style="background:var(--bg);">
+    <section class="section" style="background:var(--surface);">
       <div class="container">
         <div class="fade-up" style="margin-bottom:2.5rem;">
           <span class="material-symbols-outlined" style="font-size:2rem;color:var(--gold);margin-bottom:0.75rem;display:block;">landscape</span>
-          <h2 style="font-family:var(--font-serif);font-style:italic;font-weight:700;font-size:1.75rem;color:#fff;margin-bottom:0.25rem;">Selezioni del Territorio</h2>
-          <p style="font-family:var(--font-serif);font-style:italic;font-size:0.875rem;color:var(--text-dim);">Vini che parlano della loro terra.</p>
+          <h2 style="font-family:var(--font-display);font-style:italic;font-weight:700;font-size:1.75rem;color:#fff;margin-bottom:0.25rem;">Selezioni del Territorio</h2>
+          <p style="font-family:var(--font-display);font-style:italic;font-size:0.875rem;color:var(--text-dim);">Vini che parlano della loro terra.</p>
         </div>
-        <div class="menu-list fade-up">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:0 3rem;" class="fade-up">
 
           <div class="menu-item">
             <div>
-              <p class="menu-item-meta" style="color:var(--text-dim);font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;font-weight:600;margin-bottom:4px;">Umbria · 2020</p>
+              <p class="menu-item-meta">Umbria · 2020</p>
               <h3 class="menu-item-name">Sagrantino di Montefalco DOCG</h3>
               <p class="menu-item-desc">Il più tannico dei vitigni italiani. Frutto nero concentrato, erbe officinali, finale interminabile.</p>
             </div>
@@ -182,7 +195,7 @@
 
           <div class="menu-item">
             <div>
-              <p class="menu-item-meta" style="color:var(--text-dim);font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;font-weight:600;margin-bottom:4px;">Sicilia · 2021</p>
+              <p class="menu-item-meta">Sicilia · 2021</p>
               <h3 class="menu-item-name">Etna Rosso DOC</h3>
               <p class="menu-item-desc">Nerello Mascalese dai versanti del vulcano. Minerale, agrumato, ciliegia rossa. Acidità brillante.</p>
             </div>
@@ -191,7 +204,7 @@
 
           <div class="menu-item">
             <div>
-              <p class="menu-item-meta" style="color:var(--text-dim);font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;font-weight:600;margin-bottom:4px;">Campania · 2019</p>
+              <p class="menu-item-meta">Campania · 2019</p>
               <h3 class="menu-item-name">Aglianico del Taburno DOCG</h3>
               <p class="menu-item-desc">Il "Barolo del Sud". Prugna nera, humus, spezie. Struttura imponente.</p>
             </div>
@@ -200,7 +213,7 @@
 
           <div class="menu-item">
             <div>
-              <p class="menu-item-meta" style="color:var(--text-dim);font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;font-weight:600;margin-bottom:4px;">Marche · 2020</p>
+              <p class="menu-item-meta">Marche · 2020</p>
               <h3 class="menu-item-name">Conero Riserva DOCG</h3>
               <p class="menu-item-desc">Montepulciano in purezza, 24 mesi di affinamento. Mora matura, liquirizia, tabacco dolce.</p>
             </div>
@@ -209,9 +222,9 @@
 
           <div class="menu-item">
             <div>
-              <p class="menu-item-meta" style="color:var(--text-dim);font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;font-weight:600;margin-bottom:4px;">Abruzzo · 2021</p>
+              <p class="menu-item-meta">Abruzzo · 2021</p>
               <h3 class="menu-item-name">Montepulciano d'Abruzzo Collecorvino</h3>
-              <p class="menu-item-desc">Frutto croccante, ciliegia matura, leggero tocco speziato. Il classico perfetto con la griglia.</p>
+              <p class="menu-item-desc">Frutto croccante, ciliegia matura. Il classico perfetto con la griglia.</p>
             </div>
             <span class="menu-item-price">€ 38</span>
           </div>
@@ -221,18 +234,18 @@
     </section>
 
     <!-- Per Calici -->
-    <section class="section" style="background:var(--surface);">
+    <section class="section" style="background:var(--bg);">
       <div class="container">
         <div class="fade-up" style="margin-bottom:2.5rem;">
           <span class="material-symbols-outlined" style="font-size:2rem;color:var(--gold);margin-bottom:0.75rem;display:block;">local_bar</span>
-          <h2 style="font-family:var(--font-serif);font-style:italic;font-weight:700;font-size:1.75rem;color:#fff;margin-bottom:0.25rem;">Per Calici</h2>
-          <p style="font-family:var(--font-serif);font-style:italic;font-size:0.875rem;color:var(--text-dim);">Serviti al calice — ideali per accompagnare ogni piatto.</p>
+          <h2 style="font-family:var(--font-display);font-style:italic;font-weight:700;font-size:1.75rem;color:#fff;margin-bottom:0.25rem;">Per Calici</h2>
+          <p style="font-family:var(--font-display);font-style:italic;font-size:0.875rem;color:var(--text-dim);">Serviti al calice — ideali per accompagnare ogni piatto.</p>
         </div>
-        <div class="menu-list fade-up">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:0 3rem;" class="fade-up">
 
           <div class="menu-item">
             <div>
-              <p class="menu-item-meta" style="color:var(--text-dim);font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;font-weight:600;margin-bottom:4px;">Toscana · Calice</p>
+              <p class="menu-item-meta">Toscana · Calice</p>
               <h3 class="menu-item-name">Chianti Classico DOCG</h3>
               <p class="menu-item-desc">Giovane e diretto, ciliegia e violetta. Il compagno ideale per gli antipasti e i tagli più saporiti.</p>
             </div>
@@ -241,7 +254,7 @@
 
           <div class="menu-item">
             <div>
-              <p class="menu-item-meta" style="color:var(--text-dim);font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;font-weight:600;margin-bottom:4px;">Veneto · Calice</p>
+              <p class="menu-item-meta">Veneto · Calice</p>
               <h3 class="menu-item-name">Valpolicella Ripasso DOC</h3>
               <p class="menu-item-desc">Ripassato sulle vinacce dell'Amarone. Più strutturato, note di frutta matura e spezie.</p>
             </div>
@@ -250,7 +263,7 @@
 
           <div class="menu-item">
             <div>
-              <p class="menu-item-meta" style="color:var(--text-dim);font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;font-weight:600;margin-bottom:4px;">Piemonte · Calice</p>
+              <p class="menu-item-meta">Piemonte · Calice</p>
               <h3 class="menu-item-name">Barbera d'Alba DOC</h3>
               <p class="menu-item-desc">Acidità vivace, ciliegia croccante, finale leggermente pepato. Perfetto con la griglia.</p>
             </div>
@@ -259,18 +272,18 @@
 
           <div class="menu-item">
             <div>
-              <p class="menu-item-meta" style="color:var(--text-dim);font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;font-weight:600;margin-bottom:4px;">Lombardia · Calice</p>
+              <p class="menu-item-meta">Lombardia · Calice</p>
               <h3 class="menu-item-name">Franciacorta Brut DOCG</h3>
-              <p class="menu-item-desc">Metodo classico, 24 mesi sui lieviti. Mela verde, pane tostato, bolla finissima. Per aperitivo o carpacci.</p>
+              <p class="menu-item-desc">Metodo classico, 24 mesi sui lieviti. Mela verde, pane tostato, bolla finissima.</p>
             </div>
             <span class="menu-item-price">€ 12</span>
           </div>
 
           <div class="menu-item">
             <div>
-              <p class="menu-item-meta" style="color:var(--text-dim);font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;font-weight:600;margin-bottom:4px;">Sicilia · Calice</p>
+              <p class="menu-item-meta">Sicilia · Calice</p>
               <h3 class="menu-item-name">Grillo Siciliano</h3>
-              <p class="menu-item-desc">Bianco Mediterraneo, agrumi, erbe spontanee, minerale. Fresco e persistente, eccellente con salumi.</p>
+              <p class="menu-item-desc">Bianco Mediterraneo, agrumi, erbe spontanee, minerale. Eccellente con salumi.</p>
             </div>
             <span class="menu-item-price">€ 7</span>
           </div>
@@ -280,14 +293,14 @@
     </section>
 
     <!-- CTA -->
-    <section class="section" style="background:var(--bg);text-align:center;">
+    <section class="section" style="background:var(--surface);text-align:center;">
       <div class="container-narrow fade-up">
         <span class="material-symbols-outlined" style="font-size:3rem;color:var(--gold);margin-bottom:1.5rem;display:block;">restaurant</span>
         <h2 class="section-title" style="margin-bottom:1rem;">Abbina il <strong>Vino</strong> alla <strong>Carne</strong></h2>
         <p class="section-sub" style="max-width:500px;margin:0 auto 2.5rem;">Lasciati consigliare dal nostro team. Prenota il tuo tavolo e scopri gli abbinamenti che abbiamo preparato per te.</p>
         <a href="prenotazioni.html" class="btn-primary">Prenota un Tavolo</a>
-        <p style="margin-top:2rem;font-family:var(--font-serif);font-style:italic;font-size:0.8rem;color:var(--text-dim);">
-          Aperti tutti i giorni: 12:00–14:30 / 19:00–23:00 &nbsp;|&nbsp; Tel. <a href="tel:3392734159" style="color:var(--gold);text-decoration:none;">339 27 34 159</a>
+        <p style="margin-top:2rem;font-family:var(--font-display);font-style:italic;font-size:0.8rem;color:var(--text-dim);">
+          Pranzo: 12:00–14:30 &nbsp;|&nbsp; Cena: 19:00–23:00 &nbsp;|&nbsp; Tel. <a href="tel:3392734159" style="color:var(--gold);text-decoration:none;">339 27 34 159</a>
         </p>
       </div>
     </section>
@@ -302,11 +315,12 @@
       </div>
       <nav class="footer-links">
         <a href="index.html"          class="footer-link">Home</a>
-        <a href="chi-siamo.html"     class="footer-link">Chi Siamo</a>
-        <a href="menu.html"           class="footer-link">Menu</a>
-        <a href="prenotazioni.html"   class="footer-link">Prenotazioni</a>
+        <a href="chi-siamo.html"     class="footer-link">Chi siamo</a>
+        <a href="menu.html"           class="footer-link">Menù</a>
+        <a href="prenotazioni.html"  class="footer-link">Prenotazioni</a>
+        <a href="eventi.html"         class="footer-link">Eventi</a>
       </nav>
-      <div class="footer-copy">© 2024 MuuuTeca. Tutti i diritti riservati.</div>
+      <div class="footer-copy">© 2025 MuuuTeca. Tutti i diritti riservati.</div>
     </div>
   </footer>
 

@@ -3,10 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Menu — MuuuTeca</title>
-  <meta name="description" content="Il menu di MuuuTeca — tagli di manzo selezionati, griglia tradizionale, carta dei vini curata a Pavia." />
+  <title>Menù — MuuuTeca</title>
+  <meta name="description" content="Il menù di MuuuTeca — Fiorentina, Tomahawk, Hamburger gourmet e molto altro. Pavia." />
   <link rel="stylesheet" href="css/style.css" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&display=swap" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 </head>
 <body>
 
@@ -14,12 +15,13 @@
     <a href="index.html" class="nav-logo">MuuuTeca</a>
     <div class="nav-links">
       <a href="index.html"           class="nav-link">Home</a>
-      <a href="chi-siamo.html"      class="nav-link">Chi Siamo</a>
-      <a href="menu.html"            class="nav-link active">Menu</a>
-      <a href="carta-dei-vini.html" class="nav-link">Carta dei Vini</a>
+      <a href="chi-siamo.html"      class="nav-link">Chi siamo</a>
+      <a href="menu.html"            class="nav-link active">Menù</a>
+      <a href="carta-dei-vini.html" class="nav-link">Carta dei vini</a>
       <a href="prenotazioni.html"    class="nav-link">Prenotazioni</a>
+      <a href="eventi.html"          class="nav-link">Eventi</a>
     </div>
-    <a href="prenotazioni.html" class="btn-cta-white nav-cta-desktop">Book a Table</a>
+    <a href="prenotazioni.html" class="btn-cta-white nav-cta-desktop">Prenotazioni</a>
     <button id="menuBtn" class="nav-hamburger" aria-label="Menu">
       <span class="material-symbols-outlined" style="font-size:1.75rem">menu</span>
     </button>
@@ -33,13 +35,14 @@
       </button>
       <nav class="mobile-nav">
         <a href="index.html"           class="mobile-nav-link">Home</a>
-        <a href="chi-siamo.html"      class="mobile-nav-link">Chi Siamo</a>
-        <a href="menu.html"            class="mobile-nav-link active">Menu</a>
-        <a href="carta-dei-vini.html" class="mobile-nav-link">Carta dei Vini</a>
+        <a href="chi-siamo.html"      class="mobile-nav-link">Chi siamo</a>
+        <a href="menu.html"            class="mobile-nav-link active">Menù</a>
+        <a href="carta-dei-vini.html" class="mobile-nav-link">Carta dei vini</a>
         <a href="prenotazioni.html"    class="mobile-nav-link">Prenotazioni</a>
+        <a href="eventi.html"          class="mobile-nav-link">Eventi</a>
       </nav>
       <div class="mobile-nav-cta">
-        <a href="prenotazioni.html" class="btn-cta-white" style="width:100%;justify-content:center;">Book a Table</a>
+        <a href="prenotazioni.html" class="btn-cta-white" style="width:100%;justify-content:center;">Prenotazioni</a>
       </div>
     </div>
   </div>
@@ -47,12 +50,12 @@
   <!-- Hero -->
   <section class="page-hero">
     <div class="page-hero-bg">
-      <img src="https://images.unsplash.com/photo-1432139555190-58524dae6a55?w=1920&q=80" alt="Il menu MuuuTeca" loading="eager" />
+      <img src="https://images.unsplash.com/photo-1432139555190-58524dae6a55?w=1920&q=80" alt="Il menù MuuuTeca" loading="eager" />
     </div>
     <div class="page-hero-content">
-      <p class="page-hero-eyebrow">Il Nostro Menu</p>
+      <p class="page-hero-eyebrow">Il Nostro Menù</p>
       <h1 class="page-hero-headline"><em>Carne</em> & <em>Vino</em></h1>
-      <p class="page-hero-sub">Tagli selezionati, griglia viva, etichette scelte con cura.</p>
+      <p class="page-hero-sub">Dove il cibo parla al tuo palato.</p>
     </div>
   </section>
 
@@ -63,15 +66,15 @@
       <div class="container">
         <div class="fade-up" style="margin-bottom:2.5rem;">
           <span class="material-symbols-outlined" style="font-size:2rem;color:var(--gold);margin-bottom:0.75rem;display:block;">lunch_dining</span>
-          <h2 style="font-family:var(--font-serif);font-style:italic;font-weight:700;font-size:1.75rem;color:#fff;margin-bottom:0.25rem;">I Secondi</h2>
-          <p style="font-family:var(--font-serif);font-style:italic;font-size:0.875rem;color:var(--text-dim);">La qualità che parliamo al palato.</p>
+          <h2 style="font-family:var(--font-display);font-style:italic;font-weight:700;font-size:1.75rem;color:#fff;margin-bottom:0.25rem;">I Secondi</h2>
+          <p style="font-family:var(--font-display);font-style:italic;font-size:0.875rem;color:var(--text-dim);">La qualità che parliamo al palato.</p>
         </div>
-        <div class="menu-list fade-up">
+        <div class="fade-up">
 
           <div class="menu-item">
             <div>
               <h3 class="menu-item-name">Fiorentina</h3>
-              <p class="menu-item-desc">Bistecca alla fiorentina, 1.2 kg — taglio storico toscano, cotta sulla brace viva.</p>
+              <p class="menu-item-desc">Bistecca alla fiorentina — taglio storico toscano, cotta sulla brace viva. Il piatto simbolo della tradizione italiana.</p>
             </div>
             <span class="menu-item-price">€ 38</span>
           </div>
@@ -79,7 +82,7 @@
           <div class="menu-item">
             <div>
               <h3 class="menu-item-name">Tomahawk</h3>
-              <p class="menu-item-desc">Osso lungo, taglio Tenera Chianina, marinatura alle erbe di Pavia.</p>
+              <p class="menu-item-desc">Osso lungo, taglio Tenera Chianina. L'esperienza definitiva per gli amanti della brace.</p>
             </div>
             <span class="menu-item-price">€ 45</span>
           </div>
@@ -95,15 +98,15 @@
           <div class="menu-item">
             <div>
               <h3 class="menu-item-name">Picanha</h3>
-              <p class="menu-item-desc">Il taglio brasiliano preferito — grigliato e servito al sangue.</p>
+              <p class="menu-item-desc">Il taglio brasiliano preferito — grigliato e servito al sangue, con sale Maldon a crudo.</p>
             </div>
             <span class="menu-item-price">€ 35</span>
           </div>
 
           <div class="menu-item">
             <div>
-              <h3 class="menu-item-name">Costata</h3>
-              <p class="menu-item-desc">Costata di Fassona, dry-aged 30 giorni, sale Maldon, olio evo a crudo.</p>
+              <h3 class="menu-item-name">Costata di Manzo</h3>
+              <p class="menu-item-desc">Dry-aged 30 giorni, sale Maldon, olio evo a crudo. Semplicità che esalta la qualità.</p>
             </div>
             <span class="menu-item-price">€ 32</span>
           </div>
@@ -128,14 +131,44 @@
       </div>
     </section>
 
-    <!-- Antipasti -->
+    <!-- MuuuClassic & Burger -->
     <section class="section" style="background:var(--surface);">
       <div class="container">
         <div class="fade-up" style="margin-bottom:2.5rem;">
-          <span class="material-symbols-outlined" style="font-size:2rem;color:var(--gold);margin-bottom:0.75rem;display:block;">tapas</span>
-          <h2 style="font-family:var(--font-serif);font-style:italic;font-weight:700;font-size:1.75rem;color:#fff;margin-bottom:0.25rem;">Antipasti</h2>
+          <span class="material-symbols-outlined" style="font-size:2rem;color:var(--gold);margin-bottom:0.75rem;display:block;">fastfood</span>
+          <h2 style="font-family:var(--font-display);font-style:italic;font-weight:700;font-size:1.75rem;color:#fff;margin-bottom:0.25rem;">MuuuClassic</h2>
+          <p style="font-family:var(--font-display);font-style:italic;font-size:0.875rem;color:var(--text-dim);">L'hamburger di casa.</p>
         </div>
-        <div class="menu-list fade-up">
+        <div class="fade-up">
+
+          <div class="menu-item">
+            <div>
+              <h3 class="menu-item-name">MuuuClassic</h3>
+              <p class="menu-item-desc">Hamburger di manzo, insalata iceberg, pomodoro, salsa special e bibita.</p>
+            </div>
+            <span class="menu-item-price">€ 18</span>
+          </div>
+
+          <div class="menu-item">
+            <div>
+              <h3 class="menu-item-name">MuuuClassic + Patatine</h3>
+              <p class="menu-item-desc">Il MuuuClassic con contorno di patatine fritte croccanti.</p>
+            </div>
+            <span class="menu-item-price">€ 22</span>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Antipasti -->
+    <section class="section" style="background:var(--bg);">
+      <div class="container">
+        <div class="fade-up" style="margin-bottom:2.5rem;">
+          <span class="material-symbols-outlined" style="font-size:2rem;color:var(--gold);margin-bottom:0.75rem;display:block;">tapas</span>
+          <h2 style="font-family:var(--font-display);font-style:italic;font-weight:700;font-size:1.75rem;color:#fff;margin-bottom:0.25rem;">Antipasti</h2>
+        </div>
+        <div class="fade-up">
 
           <div class="menu-item">
             <div>
@@ -174,11 +207,11 @@
     </section>
 
     <!-- Contorni -->
-    <section class="section" style="background:var(--bg);">
+    <section class="section" style="background:var(--surface);">
       <div class="container">
         <div class="fade-up" style="margin-bottom:2.5rem;">
           <span class="material-symbols-outlined" style="font-size:2rem;color:var(--gold);margin-bottom:0.75rem;display:block;">eco</span>
-          <h2 style="font-family:var(--font-serif);font-style:italic;font-weight:700;font-size:1.75rem;color:#fff;margin-bottom:0.25rem;">Contorni</h2>
+          <h2 style="font-family:var(--font-display);font-style:italic;font-weight:700;font-size:1.75rem;color:#fff;margin-bottom:0.25rem;">Contorni</h2>
         </div>
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;" class="fade-up">
           <div class="card" style="padding:1.75rem;">
@@ -201,24 +234,22 @@
     </section>
 
     <!-- Degustazioni -->
-    <section class="section" style="background:var(--surface);text-align:center;">
+    <section class="section" style="background:var(--bg);text-align:center;">
       <div class="container-narrow fade-up">
         <span class="material-symbols-outlined" style="font-size:3rem;color:var(--gold);margin-bottom:1.5rem;display:block;">calendar_month</span>
         <h2 class="section-title" style="margin-bottom:1rem;">Degustazioni & <strong>Eventi</strong></h2>
-        <p class="section-sub" style="max-width:520px;margin:0 auto 2rem;font-size:1rem;">
-          Organizziamo regolarmente degustazioni di carne e vino, cene a tema e serate private. Contattaci per scoprire i prossimi eventi.
+        <p class="section-sub" style="max-width:520px;margin:0 auto 2rem;">
+          Organizziamo regolarmente degustazioni, cene a tema e serate private. Scopri gli eventi settimanali.
         </p>
-        <a href="tel:3392734159" style="font-family:var(--font-sans);font-size:0.85rem;font-weight:700;color:var(--gold);border-bottom:1px solid rgba(201,165,74,0.4);padding-bottom:2px;text-decoration:none;">
-          Contattaci per gli eventi →
-        </a>
-        <p style="margin-top:2rem;font-family:var(--font-serif);font-style:italic;font-size:0.8rem;color:var(--text-dim);">
+        <a href="eventi.html" class="btn-primary">Vedi gli Eventi</a>
+        <p style="margin-top:2rem;font-family:var(--font-display);font-style:italic;font-size:0.8rem;color:var(--text-dim);">
           Tel. <a href="tel:3392734159" style="color:var(--gold);text-decoration:none;">339 27 34 159</a> &nbsp;|&nbsp; Via Festa Giovanni 85, Pavia
         </p>
       </div>
     </section>
 
     <!-- CTA -->
-    <section class="section" style="background:var(--bg);text-align:center;">
+    <section class="section" style="background:var(--surface);text-align:center;">
       <div class="container-narrow fade-up">
         <h2 class="section-title" style="margin-bottom:0.75rem;">Pronto a <strong>ordinare</strong>?</h2>
         <p class="section-sub" style="margin-bottom:2.5rem;">Prenota il tuo tavolo e ti accogliamo come si deve.</p>
@@ -236,11 +267,12 @@
       </div>
       <nav class="footer-links">
         <a href="index.html"           class="footer-link">Home</a>
-        <a href="chi-siamo.html"      class="footer-link">Chi Siamo</a>
-        <a href="carta-dei-vini.html" class="footer-link">Carta dei Vini</a>
-        <a href="prenotazioni.html"     class="footer-link">Prenotazioni</a>
+        <a href="chi-siamo.html"      class="footer-link">Chi siamo</a>
+        <a href="carta-dei-vini.html" class="footer-link">Carta dei vini</a>
+        <a href="prenotazioni.html"    class="footer-link">Prenotazioni</a>
+        <a href="eventi.html"          class="footer-link">Eventi</a>
       </nav>
-      <div class="footer-copy">© 2024 MuuuTeca. Tutti i diritti riservati.</div>
+      <div class="footer-copy">© 2025 MuuuTeca. Tutti i diritti riservati.</div>
     </div>
   </footer>
 
